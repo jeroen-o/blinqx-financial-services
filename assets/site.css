@@ -134,24 +134,9 @@ html[data-lang="nl"] .flow small[data-lang-content="nl"],html[data-lang="en"] .f
 
 /* navigatie */
 a.logo{text-decoration:none}
-.mainnav{display:flex;gap:6px;margin-left:auto}
-.navlink{color:#cfd8e6;text-decoration:none;font-size:.92rem;font-weight:600;padding:7px 14px;border-radius:999px;border:1.5px solid transparent;white-space:nowrap}
-.navlink:hover{color:#fff;border-color:rgba(255,255,255,.35)}
-.navlink[aria-current="page"]{color:#fff;border-color:rgba(255,255,255,.7)}
-.navlink[data-key="contact"]{background:var(--yellow);color:var(--navy);border-color:var(--yellow);margin-left:6px}
-.menu{display:none;position:relative}
-.menu summary{list-style:none;cursor:pointer;font-size:.85rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:999px;padding:7px 12px;white-space:nowrap}
-.menu summary::-webkit-details-marker{display:none}
-.menu-panel{position:absolute;right:0;top:calc(100% + 8px);background:var(--navy);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;display:flex;flex-direction:column;min-width:180px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
-.menulink{color:#fff;text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600}
-.menulink:hover,.menulink[aria-current="page"]{background:var(--navy-2);color:var(--yellow)}
-@media (max-width:1180px){.mainnav{display:none}.menu{display:block}}
 section[id]{scroll-margin-top:76px}
 body[data-page="diensten"] section[id]{scroll-margin-top:140px}
-.mainnav{gap:2px}.navlink{padding:7px 11px}
-@media (max-width:480px){.header-inner{gap:8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-actions{gap:6px}.langbtn button{padding:5px 8px}.menu summary{padding:7px 11px}.mtxt{display:none}}
-.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.mainnav{gap:2px}.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 a.btn{text-decoration:none}
 
 /* home */
@@ -214,6 +199,22 @@ html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .
 .cerr{min-height:1.2em;margin-top:12px!important;font-weight:600;color:#ffb4a8}
 .cerr.ok{color:#bfe8d3}
 @media (max-width:640px){.cgrid{grid-template-columns:1fr}.cform{padding:20px}}
+
+/* header zoals hypotheekonderzoek.nl */
+.topnav{display:flex;align-items:center;gap:10px;margin-left:auto}
+.hbtn{display:inline-flex;align-items:center;font:inherit;font-size:.95rem;font-weight:600;text-decoration:none;white-space:nowrap;border-radius:999px;padding:9px 18px;cursor:pointer;line-height:1.2}
+.hbtn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+.hbtn.ghost:hover{border-color:#fff}
+.hbtn.yellow{background:var(--yellow);color:var(--navy);border:1.5px solid var(--yellow)}
+.hbtn.home[aria-current="page"]{background:rgba(255,255,255,.08)}
+.menu-btn[aria-expanded="true"]{background:#fff;color:var(--navy);border-color:#fff}
+.menu-drop{position:absolute;left:0;right:0;top:60px;max-width:1160px;background:var(--navy);box-shadow:0 18px 40px rgba(0,0,0,.35);border-radius:0 0 14px 14px;padding-bottom:10px}
+.mlinks{display:flex;flex-direction:column}
+.mlinks a{color:#e6ecf5;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem}
+.mlinks a:hover,.mlinks a[aria-current="page"]{color:var(--yellow)}
+@media (max-width:640px){.topnav{gap:6px}.hbtn{padding:8px 12px;font-size:.85rem}.hbtn.home{display:none}.langbtn button{padding:5px 8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-inner{gap:8px}}
+@media (max-width:440px){.mtxt{display:none}.menu-btn{padding:8px 11px}}
+@media (max-width:380px){.hbtn.yellow{display:none}}
 
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}

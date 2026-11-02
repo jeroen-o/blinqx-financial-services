@@ -43,9 +43,14 @@ function setFilter(f){
   document.querySelectorAll('a[data-nav][data-key]').forEach(function(a){
     if(a.getAttribute('data-key')===page) a.setAttribute('aria-current','page');
   });
-  document.querySelectorAll('.menu-panel a').forEach(function(a){
-    a.addEventListener('click',function(){var m=a.closest('details'); if(m) m.open=false;});
-  });
+  var mb=document.getElementById('menuBtn'), mm=document.getElementById('siteMenu');
+  if(mb&&mm){
+    var setMenu=function(open){mm.hidden=!open;mb.setAttribute('aria-expanded',String(open));};
+    mb.addEventListener('click',function(e){e.stopPropagation();setMenu(mm.hidden);});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+    document.addEventListener('click',function(e){if(!mm.hidden&&!mm.contains(e.target))setMenu(false);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);mb.focus();}});
+  }
   setLang(currentLang());
   var dg=new URLSearchParams(location.search).get('doelgroep');
   var valid=['banken','verzekeraars','kredietbemiddelaars','serviceproviders','pensioen','partners','vastgoed'];
