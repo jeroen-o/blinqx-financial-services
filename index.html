@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="nl" data-lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Blinqx Financial Services</title>
+<meta name="description" content="Blinqx Financial Services: data-, validatie- en signaleringsdiensten voor banken, verzekeraars, kredietbemiddelaars, serviceproviders, pensioenbedrijven, partners en vastgoed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: sticky segmented audience-filter (pill nav) drives a tagged service grid — mirrors how rate/data feeds route to the right recipient in the Blinqx ecosystem. */
+:root{
+  --bg:#ffffff;
+  --surface:#f6f4ee;
+  --surface-2:#eeebe2;
+  --fg:#15171b;
+  --muted:#5c6066;
+  --line:#e3e0d6;
+  --accent:#FFCD00;
+  --accent-ink:#15171b;
+  --accent-dim:#fff2b8;
+  --mono:#5c6066;
+  --radius:14px;
+  --font-display:'Archivo',Arial,sans-serif;
+  --font-body:'Work Sans',Arial,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101113;
+    --surface:#17181b;
+    --surface-2:#1e2024;
+    --fg:#f1f0ea;
+    --muted:#9a9ea5;
+    --line:#2a2c30;
+    --accent:#FFCD00;
+    --accent-ink:#15171b;
+    --accent-dim:#3a3315;
+    --mono:#9a9ea5;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101113;
+  --surface:#17181b;
+  --surface-2:#1e2024;
+  --fg:#f1f0ea;
+  --muted:#9a9ea5;
+  --line:#2a2c30;
+  --accent:#FFCD00;
+  --accent-ink:#15171b;
+  --accent-dim:#3a3315;
+  --mono:#9a9ea5;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  padding-left:max(20px, env(safe-area-inset-left,0px));
+  padding-right:max(20px, env(safe-area-inset-right,0px));
+}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-0.01em;text-wrap:balance;margin:0;}
+p{margin:0;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--mono);
+}
+/* header */
+header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg);}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-block:14px;max-width:1180px;margin:0 auto;
+}
+.logo{display:flex;align-items:baseline;gap:8px;font-family:var(--font-display);font-weight:800;font-size:18px;}
+.logo .mark{
+  background:var(--accent);color:var(--accent-ink);
+  padding:3px 8px;border-radius:6px;font-weight:900;
+}
+.logo .sub{font-family:var(--font-mono);font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.03em;}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.langbtn{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;
+  background:var(--surface);border:1px solid var(--line);color:var(--fg);
+  border-radius:999px;padding:7px 4px;cursor:pointer;display:flex;gap:2px;
+}
+.langbtn button{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;
+  background:transparent;border:0;color:var(--muted);border-radius:999px;
+  padding:5px 10px;cursor:pointer;
+}
+.langbtn button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700;}
+.langbtn button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+main{max-width:1180px;margin:0 auto;}
+
+/* hero */
+.hero{padding-block:52px 36px;display:grid;gap:18px;max-width:780px;}
+.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.05;}
+.hero .lede{font-size:18px;color:var(--muted);max-width:60ch;}
+.hero .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.meta-chip{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.03em;
+  border:1px solid var(--line);color:var(--muted);padding:6px 10px;border-radius:999px;
+}
+
+/* audience nav */
+.audience-nav{
+  position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:20;
+  background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);
+  margin-top:8px;
+}
+.pill-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
+.pill-row::-webkit-scrollbar{display:none;}
+.pill{
+  flex:0 0 auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.02em;
+  background:var(--surface);border:1px solid var(--line);color:var(--fg);
+  padding:9px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;
+}
+.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700;}
+.pill:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* sections */
+section{padding-block:40px;}
+.section-head{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;max-width:70ch;}
+.section-head h2{font-size:clamp(22px,4vw,30px);}
+
+/* segment cards */
+.segment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+.segment-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0;
+}
+.segment-card .num{font-family:var(--font-mono);font-size:12px;color:var(--mono);}
+.segment-card h3{font-size:16.5px;}
+.segment-card p{color:var(--muted);font-size:14px;}
+
+/* services grid */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.service-card{
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;
+  transition:opacity .15s ease;
+}
+.service-card[hidden]{display:none;}
+.service-card .svc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.service-card h3{font-size:18px;}
+.service-card .url{font-family:var(--font-mono);font-size:11.5px;color:var(--mono);word-break:break-all;}
+.service-card p.desc{color:var(--muted);font-size:14.5px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+.tag{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;
+  background:var(--surface-2);color:var(--muted);padding:4px 8px;border-radius:5px;
+}
+.service-card a.visit{
+  font-family:var(--font-mono);font-size:12.5px;color:var(--fg);text-decoration:none;
+  border-bottom:1px solid var(--accent);align-self:flex-start;padding-bottom:1px;margin-top:4px;
+}
+
+/* partners strip */
+.partners-strip{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;
+}
+.partners-strip .ptxt{max-width:50ch;}
+.btn{
+  font-family:var(--font-mono);font-size:13px;letter-spacing:.02em;
+  background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;
+  padding:12px 18px;font-weight:700;text-decoration:none;display:inline-block;white-space:nowrap;
+}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
+.contact-item{display:flex;flex-direction:column;gap:4px;}
+.contact-item .label{font-family:var(--font-mono);font-size:11.5px;color:var(--mono);text-transform:uppercase;letter-spacing:.06em;}
+.contact-item .val{font-size:15px;}
+
+footer{border-top:1px solid var(--line);padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));}
+footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;}
+footer p{font-family:var(--font-mono);font-size:12px;color:var(--mono);}
+
+[data-lang-content]{display:none;}
+html[data-lang="nl"] [data-lang-content="nl"]{display:revert;}
+html[data-lang="en"] [data-lang-content="en"]{display:revert;}
+html[data-lang="nl"] span[data-lang-content="nl"],
+html[data-lang="en"] span[data-lang-content="en"]{display:inline;}
+html[data-lang="nl"] div[data-lang-content="nl"],
+html[data-lang="en"] div[data-lang-content="en"]{display:block;}
+
+@media (max-width:640px){
+  .hero{padding-block:36px 24px;}
+  section{padding-block:30px;}
+  .partners-strip{flex-direction:column;align-items:flex-start;}
+  #about-blinqx > div{grid-template-columns:1fr !important;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-inner">
+    <div class="logo"><span class="mark">Blinqx</span><span class="sub">Financial Services</span></div>
+    <div class="header-actions">
+      <div class="langbtn" role="group" aria-label="Taal / Language">
+        <button type="button" id="btn-nl" aria-pressed="true" onclick="setLang('nl')">NL</button>
+        <button type="button" id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <div data-lang-content="nl">
+        <p class="eyebrow">Data, validatie &amp; infrastructuur voor de financiële adviesketen</p>
+        <h1>Eén platform achter de tarieven, dossiers en signalen van de financiële sector</h1>
+        <p class="lede">Blinqx Financial Services bundelt de data- en softwarediensten waarmee banken, verzekeraars, kredietbemiddelaars, serviceproviders, pensioenbedrijven, partners en vastgoedprofessionals hun processen versnellen, controleren en ontsluiten.</p>
+      </div>
+      <div data-lang-content="en">
+        <p class="eyebrow">Data, validation &amp; infrastructure for the financial advice chain</p>
+        <h1>One platform behind the rates, files and signals of the financial sector</h1>
+        <p class="lede">Blinqx Financial Services brings together the data and software services that banks, insurers, credit intermediaries, service providers, pension providers, partners and real estate professionals use to speed up, validate and distribute their processes.</p>
+      </div>
+      <div class="meta-row">
+        <span class="meta-chip" data-lang-content="nl">14 diensten</span>
+        <span class="meta-chip" data-lang-content="en">14 services</span>
+        <span class="meta-chip" data-lang-content="nl">7 doelgroepen</span>
+        <span class="meta-chip" data-lang-content="en">7 segments</span>
+        <span class="meta-chip">financial-services.blinqx.tech</span>
+      </div>
+    </section>
+
+    <nav class="audience-nav" aria-label="Doelgroepfilter">
+      <div class="pill-row" id="pillrow">
+        <button class="pill" data-filter="all" aria-pressed="true" onclick="setFilter('all')">
+          <span data-lang-content="nl">Alle diensten</span><span data-lang-content="en">All services</span>
+        </button>
+        <button class="pill" data-filter="banken" aria-pressed="false" onclick="setFilter('banken')">
+          <span data-lang-content="nl">Banken</span><span data-lang-content="en">Banks</span>
+        </button>
+        <button class="pill" data-filter="verzekeraars" aria-pressed="false" onclick="setFilter('verzekeraars')">
+          <span data-lang-content="nl">Verzekeraars</span><span data-lang-content="en">Insurers</span>
+        </button>
+        <button class="pill" data-filter="kredietbemiddelaars" aria-pressed="false" onclick="setFilter('kredietbemiddelaars')">
+          <span data-lang-content="nl">Kredietbemiddelaars</span><span data-lang-content="en">Credit intermediaries</span>
+        </button>
+        <button class="pill" data-filter="serviceproviders" aria-pressed="false" onclick="setFilter('serviceproviders')">
+          <span data-lang-content="nl">Serviceproviders</span><span data-lang-content="en">Service providers</span>
+        </button>
+        <button class="pill" data-filter="pensioen" aria-pressed="false" onclick="setFilter('pensioen')">
+          <span data-lang-content="nl">Pensioenbedrijven &amp; fondsen</span><span data-lang-content="en">Pension providers &amp; funds</span>
+        </button>
+        <button class="pill" data-filter="partners" aria-pressed="false" onclick="setFilter('partners')">
+          <span data-lang-content="nl">Partners</span><span data-lang-content="en">Partners</span>
+        </button>
+        <button class="pill" data-filter="vastgoed" aria-pressed="false" onclick="setFilter('vastgoed')">
+          <span data-lang-content="nl">Vastgoed</span><span data-lang-content="en">Real estate</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ABOUT BLINQX -->
+    <section id="about-blinqx">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Onderdeel van Blinqx</p>
+        <p class="eyebrow" data-lang-content="en">Part of Blinqx</p>
+        <h2 data-lang-content="nl">Eén platformgedachte, gebundeld vanuit meerdere sectoren</h2>
+        <h2 data-lang-content="en">One platform philosophy, bundled from multiple sectors</h2>
+      </div>
+      <div style="display:grid;gap:14px;grid-template-columns:1.1fr .9fr;">
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:0;">
+          <p data-lang-content="nl">Blinqx Financial Services is geen losstaand initiatief, maar de financiële tak van Blinqx: een organisatie van ruim 700 collega's die SaaS-platformen bouwt en beheert voor professionele dienstverlening. Diezelfde kennis van workflow-automatisering, data-infrastructuur en compliance zet Blinqx ook in buiten de financiële sector — onder meer in de accountancy en de juridische sector. Dat schaalvoordeel komt terug in onze diensten: wat elders binnen Blinqx is ontwikkeld aan beveiliging, datavalidatie en procesautomatisering, wordt hier toegepast op hypotheken, verzekeringen en pensioenen.</p>
+          <p data-lang-content="nl">Die bundeling krijgt concreet vorm in eBlinqx: het platform waarin de kennis en techniek van bekende merken samenkomt — Adviesbox, Fastlane, FasterForward, MijnTP, Nationale Hypotheekbond, Finly, FincomNect, Dias, Finrust, Yesco, MijnHuisZaken en APLAZA. In plaats van los van elkaar werkende systemen per merk, bouwt Blinqx één doorlopende platforminfrastructuur waarop deze merken en de diensten op deze pagina voortbouwen.</p>
+          <p data-lang-content="en">Blinqx Financial Services is not a standalone initiative but the financial arm of Blinqx: an organisation of more than 700 colleagues that builds and runs SaaS platforms for professional services. Blinqx applies that same expertise in workflow automation, data infrastructure and compliance outside the financial sector too — including in accountancy and the legal sector. That scale advantage carries through into our services: security, data validation and process automation built elsewhere within Blinqx is applied here to mortgages, insurance and pensions.</p>
+          <p data-lang-content="en">That bundling takes concrete shape in eBlinqx: the platform in which the knowledge and technology of well-known brands come together — Adviesbox, Fastlane, FasterForward, MijnTP, Nationale Hypotheekbond, Finly, FincomNect, Dias, Finrust, Yesco, MijnHuisZaken and APLAZA. Rather than systems that operate separately per brand, Blinqx builds one continuous platform infrastructure that these brands, and the services on this page, build on.</p>
+        </div>
+        <div class="segment-grid" style="grid-template-columns:1fr;align-self:start;">
+          <div class="segment-card">
+            <span class="num">700+</span>
+            <h3 data-lang-content="nl">Collega's binnen Blinqx</h3>
+            <h3 data-lang-content="en">Colleagues within Blinqx</h3>
+          </div>
+          <div class="segment-card">
+            <span class="num" data-lang-content="nl">Sectoren</span><span class="num" data-lang-content="en">Sectors</span>
+            <h3 data-lang-content="nl">Financiële sector, accountancy, juridische sector e.a.</h3>
+            <h3 data-lang-content="en">Financial services, accountancy, legal sector &amp; more</h3>
+          </div>
+          <div class="segment-card">
+            <span class="num" data-lang-content="nl">Merken</span><span class="num" data-lang-content="en">Brands</span>
+            <h3 data-lang-content="nl">Adviesbox · Fastlane · FasterForward · MijnTP · Nationale Hypotheekbond · Finly · FincomNect · Dias · Finrust · Yesco · MijnHuisZaken · APLAZA</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGMENTS -->
+    <section id="segments">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Doelgroepen</p>
+        <p class="eyebrow" data-lang-content="en">Segments</p>
+        <h2 data-lang-content="nl">Voor wie we werken</h2>
+        <h2 data-lang-content="en">Who we serve</h2>
+      </div>
+      <div class="segment-grid">
+        <div class="segment-card">
+          <span class="num">01</span>
+          <h3 data-lang-content="nl">Banken</h3><h3 data-lang-content="en">Banks</h3>
+          <p data-lang-content="nl">Brondata, validatie en distributie-infrastructuur voor rentetarieven en hypotheekprocessen.</p>
+          <p data-lang-content="en">Source data, validation and distribution infrastructure for interest rates and mortgage processes.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">02</span>
+          <h3 data-lang-content="nl">Verzekeraars</h3><h3 data-lang-content="en">Insurers</h3>
+          <p data-lang-content="nl">Marktdata, premie-onderzoek en signalering voor schade-, leven- en pensioenproducten.</p>
+          <p data-lang-content="en">Market data, premium research and signalling for non-life, life and pension products.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">03</span>
+          <h3 data-lang-content="nl">Kredietbemiddelaars</h3><h3 data-lang-content="en">Credit intermediaries</h3>
+          <p data-lang-content="nl">Tools die het volledige adviesproces versnellen, van portefeuillebeheer tot dossiervalidatie.</p>
+          <p data-lang-content="en">Tools that speed up the entire advice process, from portfolio management to file validation.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">04</span>
+          <h3 data-lang-content="nl">Serviceproviders</h3><h3 data-lang-content="en">Service providers</h3>
+          <p data-lang-content="nl">Infrastructuur en datafeeds om als provider waarde toe te voegen richting aangesloten kantoren.</p>
+          <p data-lang-content="en">Infrastructure and data feeds to add value as a provider to affiliated offices.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">05</span>
+          <h3 data-lang-content="nl">Pensioenbedrijven &amp; fondsen</h3><h3 data-lang-content="en">Pension providers &amp; funds</h3>
+          <p data-lang-content="nl">Benchmarkdata en ontsluiting van pensioenvoorwaarden en -tarieven.</p>
+          <p data-lang-content="en">Benchmark data and disclosure of pension terms and rates.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">06</span>
+          <h3 data-lang-content="nl">Partners</h3><h3 data-lang-content="en">Partners</h3>
+          <p data-lang-content="nl">Toegang tot het eBlinqx-platform, merken en gedeelde infrastructuur van Blinqx.</p>
+          <p data-lang-content="en">Access to the eBlinqx platform, brands and shared Blinqx infrastructure.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num">07</span>
+          <h3 data-lang-content="nl">Vastgoed</h3><h3 data-lang-content="en">Real estate</h3>
+          <p data-lang-content="nl">Tools en data die de vastgoedketen verbinden met hypotheek- en verzekeringsinformatie.</p>
+          <p data-lang-content="en">Tools and data connecting the real estate chain with mortgage and insurance information.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Diensten</p>
+        <p class="eyebrow" data-lang-content="en">Services</p>
+        <h2 data-lang-content="nl">Alle diensten, uitgelicht</h2>
+        <h2 data-lang-content="en">All services, in detail</h2>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+
+        <article class="service-card" data-tags="banken kredietbemiddelaars serviceproviders">
+          <div class="svc-top"><h3>Hypotheekcijfer.nl</h3></div>
+          <p class="url">hypotheekcijfer.nl</p>
+          <p class="desc" data-lang-content="nl">Onafhankelijk rentetarievenportaal dat actuele hypotheekrentes van banken, verzekeraars en geldverstrekkers verzamelt, controleert en ontsluit. Adviseurs, vergelijkingssites en consumenten raadplegen het platform voor een controleerbaar overzicht per NHG-grens, rentevastperiode en risicoklasse. Geldverstrekkers gebruiken Hypotheekcijfer.nl tevens als distributiekanaal richting de advieswereld.</p>
+          <p class="desc" data-lang-content="en">An independent rate portal that collects, verifies and publishes current mortgage rates from banks, insurers and lenders. Advisers, comparison sites and consumers use it for a verifiable overview by NHG limit, fixed-rate period and risk class. Lenders also use Hypotheekcijfer.nl as a distribution channel toward the advice market.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Serviceproviders</span><span class="tag" data-lang-content="en">Service providers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="pensioen verzekeraars">
+          <div class="svc-top"><h3>Pensioencijfer.nl</h3></div>
+          <p class="url">pensioencijfer.nl</p>
+          <p class="desc" data-lang-content="nl">Zusterplatform van Hypotheekcijfer.nl, gericht op pensioenproducten en -tarieven. Pensioenuitvoerders en verzekeraars leveren actuele voorwaarden aan; adviseurs en vergelijkers werken daardoor met één betrouwbare bron in plaats van losse tariefbladen.</p>
+          <p class="desc" data-lang-content="en">A sister platform to Hypotheekcijfer.nl, focused on pension products and rates. Pension administrators and insurers supply current terms, giving advisers and comparison services one reliable source instead of separate rate sheets.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Pensioenbedrijven &amp; fondsen</span><span class="tag" data-lang-content="en">Pension providers &amp; funds</span>
+            <span class="tag" data-lang-content="nl">Verzekeraars</span><span class="tag" data-lang-content="en">Insurers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="banken kredietbemiddelaars serviceproviders">
+          <div class="svc-top"><h3>Hypotheekonderzoek.nl</h3></div>
+          <p class="url">hypotheekonderzoek.nl</p>
+          <p class="desc" data-lang-content="nl">Onderzoeksplatform naar de Nederlandse hypotheekmarkt, van rentebeleid tot consumentengedrag. Banken, geldverstrekkers en brancheorganisaties gebruiken de rapportages om beleid te onderbouwen en marktbewegingen vroegtijdig te signaleren, op basis van doorlopend bijgewerkte brondata.</p>
+          <p class="desc" data-lang-content="en">A research platform on the Dutch mortgage market, from interest-rate policy to consumer behaviour. Banks, lenders and trade bodies use its reports to substantiate policy and spot market shifts early, based on continuously updated source data.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Serviceproviders</span><span class="tag" data-lang-content="en">Service providers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="verzekeraars kredietbemiddelaars">
+          <div class="svc-top"><h3>Assurantie-onderzoek.nl</h3></div>
+          <p class="url">assurantie-onderzoek.nl</p>
+          <p class="desc" data-lang-content="nl">Het verzekeringsmarktequivalent van Hypotheekonderzoek.nl: onafhankelijk onderzoek naar polisvoorwaarden, premieontwikkeling en marktaandeel binnen schade- en levensverzekeringen. Verzekeraars en intermediairs gebruiken de inzichten voor productontwikkeling en concurrentieanalyse.</p>
+          <p class="desc" data-lang-content="en">The insurance-market counterpart to Hypotheekonderzoek.nl: independent research into policy terms, premium development and market share in non-life and life insurance. Insurers and intermediaries use the findings for product development and competitive analysis.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Verzekeraars</span><span class="tag" data-lang-content="en">Insurers</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="banken kredietbemiddelaars">
+          <div class="svc-top"><h3>Renteadministratie.nl</h3></div>
+          <p class="url">renteadministratie.nl</p>
+          <p class="desc" data-lang-content="nl">Technische infrastructuur voor het aanleveren, valideren en distribueren van rentetarieven tussen geldverstrekkers en de systemen die ze verwerken, van adviessoftware tot vergelijkingsplatforms. Eén aanlevering wordt correct verspreid naar alle aangesloten afnemers, met een vastgelegde audit trail per wijziging.</p>
+          <p class="desc" data-lang-content="en">Technical infrastructure for submitting, validating and distributing interest rates between lenders and the systems that process them, from advice software to comparison platforms. A single submission is distributed correctly to every connected recipient, with a logged audit trail per change.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="kredietbemiddelaars partners vastgoed">
+          <div class="svc-top"><h3>HypotheekAdviseurZoeker.nl</h3></div>
+          <p class="url">hypotheekadviseurzoeker.nl</p>
+          <p class="desc" data-lang-content="nl">Consumentgerichte vindplaats van hypotheekadviseurs, doorzoekbaar op regio, specialisatie en klantprofiel. Kantoren vergroten hun zichtbaarheid richting woningzoekenden; vastgoedprofessionals en serviceproviders zetten de zoekfunctie in als doorverwijskanaal binnen hun eigen klantreis.</p>
+          <p class="desc" data-lang-content="en">A consumer-facing directory of mortgage advisers, searchable by region, specialism and client profile. Offices increase their visibility to home buyers; real estate professionals and service providers use the finder as a referral channel within their own customer journey.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Partners</span><span class="tag" data-lang-content="en">Partners</span>
+            <span class="tag" data-lang-content="nl">Vastgoed</span><span class="tag" data-lang-content="en">Real estate</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="kredietbemiddelaars verzekeraars serviceproviders">
+          <div class="svc-top"><h3>Portefeuillesignalen.nl</h3></div>
+          <p class="url">portefeuillesignalen.nl</p>
+          <p class="desc" data-lang-content="nl">Signaleringsdienst die de bestaande klantportefeuille van een kantoor doorlopend toetst aan renteontwikkelingen, einddata rentevastperiodes en wijzigingen in regelgeving. Een signaal verschijnt alleen bij een concrete aanleiding voor contact, zodat adviseurs proactief en onderbouwd kunnen handelen in plaats van periodiek te bellen.</p>
+          <p class="desc" data-lang-content="en">A signalling service that continuously checks an office's existing client portfolio against interest-rate movements, fixed-rate expiry dates and regulatory changes. A signal is raised only when there is a concrete reason for contact, so advisers can act proactively and with substantiation instead of calling on a fixed schedule.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Verzekeraars</span><span class="tag" data-lang-content="en">Insurers</span>
+            <span class="tag" data-lang-content="nl">Serviceproviders</span><span class="tag" data-lang-content="en">Service providers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="banken vastgoed">
+          <div class="svc-top"><h3>RWWR.nl</h3></div>
+          <p class="url">rwwr.nl</p>
+          <p class="desc" data-lang-content="nl">Rapportagetool die de actuele waarde- en risicopositie van een woning inzichtelijk maakt bij herfinancierings-, hertaxatie- en portefeuillevraagstukken. Geldverstrekkers en vastgoedprofessionals volgen zo woningwaardeontwikkeling zonder voor iedere mutatie een volledige taxatie aan te hoeven vragen. Neem contact op voor de precieze reikwijdte van de rapportage binnen uw proces.</p>
+          <p class="desc" data-lang-content="en">A reporting tool that clarifies a property's current value and risk position for refinancing, revaluation and portfolio purposes. Lenders and real estate professionals can track value developments without requesting a full appraisal for every change. Get in touch for the exact scope of the report within your process.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Vastgoed</span><span class="tag" data-lang-content="en">Real estate</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="kredietbemiddelaars serviceproviders">
+          <div class="svc-top"><h3><span data-lang-content="nl">Smart module</span><span data-lang-content="en">Smart module</span> — FasterForward</h3></div>
+          <p class="url">fasterforward.nl</p>
+          <p class="desc" data-lang-content="nl">AI-module binnen het adviespakket FasterForward die veelvoorkomende processtappen automatiseert, van dossieropbouw tot signalering van ontbrekende stukken. De module leert van historische dossiers binnen een kantoor en doet gerichte suggesties — de adviseur blijft eindverantwoordelijk voor het advies.</p>
+          <p class="desc" data-lang-content="en">An AI module within the FasterForward advice suite that automates common process steps, from file assembly to flagging missing documents. The module learns from an office's historical files and makes targeted suggestions — the adviser remains responsible for the advice given.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Serviceproviders</span><span class="tag" data-lang-content="en">Service providers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="banken kredietbemiddelaars">
+          <div class="svc-top"><h3>Hypotheekvalidatie</h3></div>
+          <p class="url" data-lang-content="nl">onderdeel van het eBlinqx-platform</p>
+          <p class="url" data-lang-content="en">part of the eBlinqx platform</p>
+          <p class="desc" data-lang-content="nl">Geautomatiseerde controle van hypotheekdossiers vóór indiening bij de geldverstrekker: volledigheid, consistentie tussen brondocumenten en naleving van acceptatiecriteria. Minder hersteldossiers en kortere doorlooptijden, doordat fouten worden opgespoord vóórdat een dossier de beoordelingsketen ingaat.</p>
+          <p class="desc" data-lang-content="en">Automated review of mortgage files before submission to the lender: completeness, consistency between source documents and compliance with acceptance criteria. Fewer returned files and shorter turnaround times, because errors are caught before a file enters the assessment chain.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="banken kredietbemiddelaars">
+          <div class="svc-top"><h3>DossierValidator.nl</h3></div>
+          <p class="url">dossiervalidator.nl</p>
+          <p class="desc" data-lang-content="nl">Validatiedienst die hypotheek- en verzekeringsdossiers toetst op volledigheid en consistentie vóór verzending naar de geldverstrekker of verzekeraar, los inzetbaar naast of in combinatie met de Hypotheekvalidatie binnen eBlinqx. Minder hersteldossiers en kortere doorlooptijden door fouten te signaleren vóórdat een dossier de beoordelingsketen ingaat. Neem contact op voor de precieze koppelmogelijkheden met uw adviessoftware.</p>
+          <p class="desc" data-lang-content="en">A validation service that checks mortgage and insurance files for completeness and consistency before submission to the lender or insurer, usable standalone alongside or in combination with the Hypotheekvalidatie within eBlinqx. Fewer returned files and shorter turnaround times, because errors are flagged before a file enters the assessment chain. Get in touch for the exact integration options with your advice software.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Banken</span><span class="tag" data-lang-content="en">Banks</span>
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="kredietbemiddelaars serviceproviders">
+          <div class="svc-top"><h3>Procesversneller</h3></div>
+          <p class="url" data-lang-content="nl">onderdeel van het eBlinqx-platform</p>
+          <p class="url" data-lang-content="en">part of the eBlinqx platform</p>
+          <p class="desc" data-lang-content="nl">Workflow-automatisering die herhalende stappen in het hypotheek- en verzekeringsadviesproces versnelt: van aanvraag tot aanlevering van stukken en terugkoppeling aan de klant. Koppelt met bestaande adviessoftware, zodat kantoren worden ontzorgd zonder het onderliggende systeem te vervangen.</p>
+          <p class="desc" data-lang-content="en">Workflow automation that speeds up repetitive steps in the mortgage and insurance advice process: from application to document submission and client feedback. Connects to existing advice software, relieving offices without replacing the underlying system.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Kredietbemiddelaars</span><span class="tag" data-lang-content="en">Credit intermediaries</span>
+            <span class="tag" data-lang-content="nl">Serviceproviders</span><span class="tag" data-lang-content="en">Service providers</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="partners">
+          <div class="svc-top"><h3>Blinqx Partners</h3></div>
+          <p class="url">verzekeringhypotheek.blinqx.tech/partners</p>
+          <p class="desc" data-lang-content="nl">Het partnernetwerk van Blinqx Verzekering &amp; Hypotheek: franchisenemers, serviceproviders en samenwerkingspartners die gebruikmaken van het eBlinqx-platform, de merken binnen het Blinqx-portfolio en de gezamenlijke infrastructuur voor data, compliance en techniek. Partners delen in schaalvoordelen op inkoop, techniek en kennis, met behoud van hun eigen klantrelatie en verdienmodel.</p>
+          <p class="desc" data-lang-content="en">The partner network of Blinqx Verzekering &amp; Hypotheek: franchisees, service providers and collaboration partners using the eBlinqx platform, the brands within the Blinqx portfolio and the shared infrastructure for data, compliance and technology. Partners share in scale advantages on purchasing, technology and knowledge, while keeping their own client relationships and revenue model.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Partners</span><span class="tag" data-lang-content="en">Partners</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-tags="vastgoed partners">
+          <div class="svc-top"><h3>ToolsVoorVastgoed.nl</h3></div>
+          <p class="url">toolsvoorvastgoed.nl</p>
+          <p class="desc" data-lang-content="nl">Verzameling praktijktools voor makelaars, taxateurs en andere vastgoedprofessionals: van rekenhulpen tot koppelingen met hypotheek- en verzekeringsdata die relevant zijn bij een transactie. Verbindt de vastgoedketen met de financiële kant van een aankoop, zodat partijen met dezelfde actuele cijfers werken.</p>
+          <p class="desc" data-lang-content="en">A collection of practical tools for estate agents, valuers and other real estate professionals: from calculators to links with mortgage and insurance data relevant to a transaction. Connects the real estate chain with the financial side of a purchase, so parties work from the same current figures.</p>
+          <div class="tag-row">
+            <span class="tag" data-lang-content="nl">Vastgoed</span><span class="tag" data-lang-content="en">Real estate</span>
+            <span class="tag" data-lang-content="nl">Partners</span><span class="tag" data-lang-content="en">Partners</span>
+          </div>
+        </article>
+
+      </div>
+      <p id="emptyState" class="desc" style="display:none;color:var(--muted);margin-top:16px;">
+        <span data-lang-content="nl">Geen diensten gevonden voor deze doelgroep.</span>
+        <span data-lang-content="en">No services found for this segment.</span>
+      </p>
+    </section>
+
+    <!-- PARTNERS STRIP -->
+    <section id="partners-cta">
+      <div class="partners-strip">
+        <div class="ptxt">
+          <p class="eyebrow" data-lang-content="nl">Partnerschap</p>
+          <p class="eyebrow" data-lang-content="en">Partnership</p>
+          <h3 style="margin-top:6px;" data-lang-content="nl">Aansluiten als partner van Blinqx?</h3>
+          <h3 style="margin-top:6px;" data-lang-content="en">Join Blinqx as a partner?</h3>
+          <p style="margin-top:8px;color:var(--muted);" data-lang-content="nl">Franchisenemers, serviceproviders en samenwerkingspartners delen in het eBlinqx-platform, de merken binnen het Blinqx-portfolio en de gezamenlijke infrastructuur voor data, compliance en techniek — met behoud van hun eigen klantrelatie en verdienmodel.</p>
+          <p style="margin-top:8px;color:var(--muted);" data-lang-content="en">Franchisees, service providers and collaboration partners share in the eBlinqx platform, the brands within the Blinqx portfolio and the joint infrastructure for data, compliance and technology — while keeping their own client relationship and revenue model.</p>
+        </div>
+        <span class="btn" style="cursor:default;">
+          <span data-lang-content="nl">Neem contact op</span>
+          <span data-lang-content="en">Get in touch</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- POSITIONING -->
+    <section id="positioning">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Positie in de markt</p>
+        <p class="eyebrow" data-lang-content="en">Market position</p>
+        <h2 data-lang-content="nl">Waar Blinqx Financial Services past in de keten</h2>
+        <h2 data-lang-content="en">Where Blinqx Financial Services fits in the chain</h2>
+      </div>
+      <div class="segment-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Laag</span><span class="num" data-lang-content="en">Layer</span>
+          <h3 data-lang-content="nl">Advies- en kernsystemen</h3>
+          <h3 data-lang-content="en">Advice &amp; core systems</h3>
+          <p data-lang-content="nl">Partijen als Keylane, Ohpen, Hippoline en de adviessoftwarehuizen bouwen de kernsystemen waarin adviseurs, verzekeraars en banken hun dossiers, polissen en klantprocessen voeren; Hyarchis richt zich binnen die laag specifiek op geautomatiseerde documentherkenning en dossierverwerking.</p>
+          <p data-lang-content="en">Players such as Keylane, Ohpen, Hippoline and the advice-software houses build the core systems in which advisers, insurers and banks run their files, policies and client processes; Hyarchis focuses within that layer on automated document recognition and file processing.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Laag</span><span class="num" data-lang-content="en">Layer</span>
+          <h3 data-lang-content="nl">Consultancy &amp; implementatie</h3>
+          <h3 data-lang-content="en">Consultancy &amp; implementation</h3>
+          <p data-lang-content="nl">IG&amp;H, Yellowtail en Tjip adviseren over en bouwen digitale transformaties voor financiële instellingen, vaak projectmatig en organisatiespecifiek.</p>
+          <p data-lang-content="en">IG&amp;H, Yellowtail and Tjip advise on and build digital transformations for financial institutions, typically on a project and organisation-specific basis.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Laag</span><span class="num" data-lang-content="en">Layer</span>
+          <h3 data-lang-content="nl">Blinqx Financial Services</h3>
+          <h3 data-lang-content="en">Blinqx Financial Services</h3>
+          <p data-lang-content="nl">Wij zitten ertussen: een doorlopende, sectorbrede data-, validatie- en signaleringslaag die bovenop en tussen die kernsystemen werkt, zonder ze te vervangen — van rentetarief tot dossiercontrole.</p>
+          <p data-lang-content="en">We sit in between: a continuous, sector-wide data, validation and signalling layer that operates on top of and between those core systems, without replacing them — from interest rate to file control.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Keten</span><span class="num" data-lang-content="en">Chain</span>
+          <h3 data-lang-content="nl">Infrastructuur &amp; toezicht</h3>
+          <h3 data-lang-content="en">Infrastructure &amp; oversight</h3>
+          <p data-lang-content="nl">Onze diensten sluiten aan op de bestaande sectorinfrastructuur en kaders van HDN, NHG, NVB en het Verbond van Verzekeraars, en werken binnen het toezicht van AFM en DNB.</p>
+          <p data-lang-content="en">Our services connect to the existing sector infrastructure and frameworks of HDN, NHG, NVB and the Dutch Association of Insurers, and operate within the oversight of the AFM and DNB.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Contact</p>
+        <p class="eyebrow" data-lang-content="en">Contact</p>
+        <h2 data-lang-content="nl">In gesprek over een van onze diensten</h2>
+        <h2 data-lang-content="en">Talk to us about one of our services</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="label" data-lang-content="nl">Organisatie</span>
+          <span class="label" data-lang-content="en">Organisation</span>
+          <span class="val">Blinqx Verzekering &amp; Hypotheek</span>
+        </div>
+        <div class="contact-item">
+          <span class="label" data-lang-content="nl">Adres</span>
+          <span class="label" data-lang-content="en">Address</span>
+          <span class="val">Hullenbergweg 109, 1101 CL Amsterdam</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">E-mail</span>
+          <span class="val">j.oversteegen@blinqx.nl</span>
+        </div>
+        <div class="contact-item">
+          <span class="label" data-lang-content="nl">Telefoon</span>
+          <span class="label" data-lang-content="en">Phone</span>
+          <span class="val">+31 6 21 247 257</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">Web</span>
+          <span class="val">verzekeringhypotheek.blinqx.tech</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap fgrid">
+    <p>© 2026 Blinqx Verzekering &amp; Hypotheek — Financial Services</p>
+    <p data-lang-content="nl">Tarieven en voorwaarden: op aanvraag</p>
+    <p data-lang-content="en">Rates and terms: available on request</p>
+  </div>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.getElementById('btn-nl').setAttribute('aria-pressed', String(l==='nl'));
+  document.getElementById('btn-en').setAttribute('aria-pressed', String(l==='en'));
+  document.documentElement.setAttribute('lang', l);
+  history.replaceState(null,'','#'+l);
+}
+function setFilter(f){
+  document.querySelectorAll('#pillrow .pill').forEach(function(p){
+    p.setAttribute('aria-pressed', String(p.getAttribute('data-filter')===f));
+  });
+  var cards = document.querySelectorAll('#servicesGrid .service-card');
+  var visible = 0;
+  cards.forEach(function(c){
+    var tags = (c.getAttribute('data-tags')||'').split(' ');
+    var show = f==='all' || tags.indexOf(f) !== -1;
+    c.hidden = !show;
+    if(show) visible++;
+  });
+  document.getElementById('emptyState').style.display = visible===0 ? 'block' : 'none';
+}
+(function init(){
+  var h = (location.hash||'').replace('#','');
+  setLang(h==='en' ? 'en' : 'nl');
+  setFilter('all');
+})();
+</script>
+
+</body>
+</html>
