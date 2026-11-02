@@ -113,6 +113,25 @@ footer{background:var(--navy);color:#cfd8e6;border-top:1px solid rgba(255,255,25
 footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;max-width:1160px;margin:0 auto}
 footer p{font-size:.85rem}
 
+#markt .lede-sm{color:var(--muted);font-size:1rem;margin-top:6px}
+#markt .segment-card{border-top:4px solid var(--yellow)}
+#markt .kpi{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+#markt .big{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+#markt .segment-grid.two{grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));margin-top:16px}
+/* AI-sectie */
+#ai .lede-sm{color:var(--muted);font-size:1.05rem;margin-top:6px}
+#ai .segment-card{border-top:4px solid var(--yellow)}
+#ai .dnb{align-items:stretch}
+#ai .dnb .ptxt{display:flex;flex-direction:column;gap:8px;flex:1 1 420px}
+#ai .dnb .ptxt p:not(.eyebrow){color:#d5deeb}
+#ai .note{font-size:.82rem;color:var(--muted);margin:10px 0 40px}
+#ai .subhead{font-size:1.3rem;margin-bottom:16px}
+#ai .segment-grid.two{grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));margin-top:16px}
+.flow{display:flex;flex-direction:column;gap:8px;flex:1 1 260px;justify-content:center}
+.flow .step{background:var(--yellow);color:var(--navy);border-radius:12px;padding:12px 14px;font-weight:700;text-align:center}
+.flow .step small{font-weight:500;font-size:.8rem;margin-top:2px}
+html[data-lang="nl"] .flow small[data-lang-content="nl"],html[data-lang="en"] .flow small[data-lang-content="en"]{display:block}
+
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
 html[data-lang="nl"] span[data-lang-content="nl"],html[data-lang="en"] span[data-lang-content="en"]{display:inline}
@@ -223,6 +242,118 @@ html[data-lang="nl"] .segment-card span.num[data-lang-content="nl"],html[data-la
             <span class="num" data-lang-content="nl">Merken</span><span class="num" data-lang-content="en">Brands</span>
             <h3 data-lang-content="nl">Adviesbox · Fastlane · FasterForward · MijnTP · Nationale Hypotheekbond · Finly · FincomNect · Dias · Finrust · Yesco · MijnHuisZaken · APLAZA</h3>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section id="ai">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">AI bij Blinqx</p>
+        <p class="eyebrow" data-lang-content="en">AI at Blinqx</p>
+        <h2 data-lang-content="nl">AI die werkt in het dagelijkse proces, niet ernaast</h2>
+        <h2 data-lang-content="en">AI that works inside the daily process, not next to it</h2>
+        <p class="lede-sm" data-lang-content="nl">Blinqx bouwt AI direct in de platformen die adviseurs, geldverstrekkers en verzekeraars al gebruiken. Binnen eBlinqx draaien sectorspecifieke AI-agents die getraind zijn op de praktijk van verzekering en hypotheek; klantdata blijft daarbij binnen de beveiligde platformomgeving van de klant, en Blinqx is ISO 27001-gecertificeerd.</p>
+        <p class="lede-sm" data-lang-content="en">Blinqx builds AI directly into the platforms that advisers, lenders and insurers already use. Within eBlinqx, sector-specific AI agents trained on insurance and mortgage practice are at work; client data stays within the client's secure platform environment, and Blinqx is ISO 27001 certified.</p>
+      </div>
+
+      <div class="partners-strip dnb">
+        <div class="ptxt">
+          <p class="eyebrow" data-lang-content="nl">DNB, 2 november 2026</p>
+          <p class="eyebrow" data-lang-content="en">DNB, 2 November 2026</p>
+          <h3 data-lang-content="nl">“AI biedt kansen voor Nederland, maar succes komt niet vanzelf”</h3>
+          <h3 data-lang-content="en">“AI offers opportunities for the Netherlands, but success does not come automatically”</h3>
+          <p data-lang-content="nl">In haar analyse van de economische impact van AI noemt De Nederlandsche Bank drie voorwaarden: toegang tot goede AI-technologie, productieve toepassing die zich breed verspreidt, en ruimte voor succesvolle bedrijven om te groeien. DNB constateert dat kleinere bedrijven achterlopen en dat software en clouddiensten juist hen toegang geven tot specialistische kennis. Ook moeten werkprocessen anders worden ingericht en moeten medewerkers nieuwe vaardigheden leren.</p>
+          <p data-lang-content="en">In its analysis of the economic impact of AI, De Nederlandsche Bank names three conditions: access to good AI technology, productive application that spreads widely, and room for successful companies to grow. DNB observes that smaller firms are lagging behind, and that software and cloud services are precisely what gives them access to specialist knowledge. Work processes also need to be redesigned and employees need to learn new skills.</p>
+        </div>
+        <div class="flow">
+          <div class="step"><span data-lang-content="nl">Toegang tot technologie</span><span data-lang-content="en">Access to technology</span><small data-lang-content="nl">AI ingebouwd in eBlinqx, als SaaS</small><small data-lang-content="en">AI built into eBlinqx, as SaaS</small></div>
+          <div class="step"><span data-lang-content="nl">Productieve toepassing</span><span data-lang-content="en">Productive application</span><small data-lang-content="nl">agents in het bestaande adviesproces</small><small data-lang-content="en">agents inside the existing advice process</small></div>
+          <div class="step"><span data-lang-content="nl">Brede verspreiding</span><span data-lang-content="en">Broad diffusion</span><small data-lang-content="nl">ook voor kleinere kantoren</small><small data-lang-content="en">also for smaller offices</small></div>
+        </div>
+      </div>
+      <p class="note" data-lang-content="nl">De koppeling tussen de DNB-voorwaarden en de aanpak van Blinqx is onze eigen duiding; DNB doet geen uitspraken over Blinqx of haar producten.</p>
+      <p class="note" data-lang-content="en">The link between DNB's conditions and Blinqx's approach is our own interpretation; DNB makes no statements about Blinqx or its products.</p>
+
+      <h3 class="subhead" data-lang-content="nl">AI-agents binnen eBlinqx voor verzekering &amp; hypotheek</h3>
+      <h3 class="subhead" data-lang-content="en">AI agents within eBlinqx for insurance &amp; mortgage</h3>
+      <div class="segment-grid">
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Mortgage Advice Agent</h3>
+            <p data-lang-content="nl">Zet een klantgesprek om in een concept-hypotheekadvies: analyseert scenario's, rekent maandlasten door en signaleert risico's of afwijkingen. De adviseur beoordeelt en stelt het advies vast.</p>
+            <p data-lang-content="en">Turns a client conversation into a draft mortgage advice: analyses scenarios, calculates monthly costs and flags risks or deviations. The adviser reviews and finalises the advice.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>KYC Agent</h3>
+            <p data-lang-content="nl">Toetst nieuwe en bestaande klanten aan relevante wet- en regelgeving en signaleert issues rond identiteit, risicoprofiel en ontbrekende gegevens, met voorstellen voor opvolging.</p>
+            <p data-lang-content="en">Checks new and existing clients against relevant laws and regulations, flagging identity, risk-profile and missing-data issues with suggested follow-ups.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Compliance Guard</h3>
+            <p data-lang-content="nl">Controleert klantgesprekken op kwaliteit en compliance en signaleert afwijkingen vroegtijdig.</p>
+            <p data-lang-content="en">Checks client conversations for quality and compliance and flags discrepancies early.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Claims Handling Agent</h3>
+            <p data-lang-content="nl">Ondersteunt schadebehandeling van melding tot besluit: dekkingstoets, uitkeringsberekening, controle op fraude-indicatoren en voorbereiding van backoffice-acties.</p>
+            <p data-lang-content="en">Supports claims handling from intake to decision: coverage check, benefit calculation, fraud-indicator checks and preparation of back-office actions.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Risk Management Agent</h3>
+            <p data-lang-content="nl">Vult de risico-inventarisatie in op basis van het gesprekstranscript, zodat de adviseur sneller tot een inventarisatie komt.</p>
+            <p data-lang-content="en">Completes the risk inventory from the conversation transcript, so the adviser gets to an inventory faster.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Smart Capture</h3>
+            <p data-lang-content="nl">Legt klantgesprekken vast in het juiste dossier en zet samenvattingen, taken en e-mails klaar.</p>
+            <p data-lang-content="en">Files client conversations in the right record and prepares summaries, tasks and e-mails.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Quinn Mail</h3>
+            <p data-lang-content="nl">Koppelt klant-e-mails aan het juiste dossier, maakt taken aan en stelt antwoorden voor.</p>
+            <p data-lang-content="en">Links client e-mails to the right file, creates tasks and suggests replies.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Growth Accelerator</h3>
+            <p data-lang-content="nl">Herkent commerciële kansen in servicegesprekken en zet opvolging klaar in het CRM.</p>
+            <p data-lang-content="en">Identifies sales opportunities in service conversations and sets up CRM follow-up.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Customer Support Chatbot</h3>
+            <p data-lang-content="nl">Beantwoordt klantvragen via app of website en draagt complexe vragen over aan een medewerker.</p>
+            <p data-lang-content="en">Answers client questions via app or website and hands complex questions over to a staff member.</p>
+          </div>
+          <div class="segment-card">
+            <span class="num">AI-agent</span>
+            <h3>Data Access MCP server</h3>
+            <p data-lang-content="nl">Ontsluit interne en externe databronnen in één beveiligde infrastructuur, zodat AI-agents met actuele, contextuele informatie werken.</p>
+            <p data-lang-content="en">Connects internal and external data sources in one secure infrastructure, so AI agents work with current, contextual information.</p>
+          </div>
+      </div>
+
+      <div class="segment-grid two">
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Brondata + AI</span><span class="num" data-lang-content="en">Source data + AI</span>
+          <h3 data-lang-content="nl">Acceptatie al tijdens de intake</h3>
+          <h3 data-lang-content="en">Acceptance during the intake</h3>
+          <p data-lang-content="nl">Door brondata te combineren met AI kan een adviseur al tijdens het intakegesprek nagaan of een klant past binnen de acceptatievoorwaarden van de geldverstrekker. Documenten worden direct gevalideerd, zodat fouten als een verlopen identiteitsbewijs of ontbrekende gegevens vroeg zichtbaar zijn. Via een technische validatieservice kunnen geldverstrekkers op elk moment toetsen of gegevens aan hun regels voldoen. Deze aanpak wordt in een pilot met twee geldverstrekkers getest, met als doel minder benodigde documenten en snellere acceptatie.</p>
+          <p data-lang-content="en">By combining source data with AI, an adviser can check during the intake meeting whether a client fits the lender's acceptance criteria. Documents are validated immediately, so errors such as an expired ID or missing data surface early. Through a technical validation service, lenders can check at any moment whether data meets their rules. This approach is being tested in a pilot with two lenders, aiming for fewer required documents and faster acceptance.</p>
+        </div>
+        <div class="segment-card">
+          <span class="num" data-lang-content="nl">Sectorbreed</span><span class="num" data-lang-content="en">Cross-sector</span>
+          <h3 data-lang-content="nl">Dezelfde AI-aanpak in elke Blinqx-sector</h3>
+          <h3 data-lang-content="en">The same AI approach in every Blinqx sector</h3>
+          <p data-lang-content="nl">Blinqx zet AI ook in buiten de financiële sector: van een dossiercheck in de juridische sector tot een belastinganalyse in de accountancy. De ervaring die we daar opdoen met veilige data-infrastructuur, validatie en procesautomatisering, komt terug in onze financiële diensten. Uitgangspunt blijft dat de professional — adviseur, acceptant of schadebehandelaar — eindverantwoordelijk is voor het besluit.</p>
+          <p data-lang-content="en">Blinqx also applies AI outside the financial sector: from a file check in the legal sector to a tax analysis in accountancy. The experience gained there in secure data infrastructure, validation and process automation feeds into our financial services. The principle remains that the professional — adviser, underwriter or claims handler — is ultimately responsible for the decision.</p>
         </div>
       </div>
     </section>
@@ -472,6 +603,36 @@ html[data-lang="nl"] .segment-card span.num[data-lang-content="nl"],html[data-la
           <span data-lang-content="nl">Neem contact op</span>
           <span data-lang-content="en">Get in touch</span>
         </span>
+      </div>
+    </section>
+
+    <!-- MARKT ACTUEEL -->
+    <section id="markt">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Actueel uit de markt</p>
+        <p class="eyebrow" data-lang-content="en">Market update</p>
+        <h2 data-lang-content="nl">Hypotheekaanvragen vallen terug na recordmaand september</h2>
+        <h2 data-lang-content="en">Mortgage applications fall back after record September</h2>
+        <p class="lede-sm" data-lang-content="nl">Cijfers van HDN, dat vrijwel alle hypotheekaanvragen in Nederland registreert (via VVP, november 2026).</p>
+        <p class="lede-sm" data-lang-content="en">Figures from HDN, which registers virtually all mortgage applications in the Netherlands (via VVP, November 2026).</p>
+      </div>
+      <div class="segment-grid kpi">
+        <div class="segment-card"><span class="num" data-lang-content="nl">Oktober</span><span class="num" data-lang-content="en">October</span><p class="big">36.652</p><p data-lang-content="nl">aanvragen, 30% minder dan oktober vorig jaar</p><p data-lang-content="en">applications, 30% fewer than October last year</p></div>
+        <div class="segment-card"><span class="num" data-lang-content="nl">September</span><span class="num" data-lang-content="en">September</span><p class="big">52.586</p><p data-lang-content="nl">aanvragen, het hoogste septemberaantal in vijf jaar</p><p data-lang-content="en">applications, the highest September total in five years</p></div>
+        <div class="segment-card"><span class="num" data-lang-content="nl">Aankoop</span><span class="num" data-lang-content="en">Purchase</span><p class="big">22.708</p><p data-lang-content="nl">aanvragen in oktober (62%)</p><p data-lang-content="en">applications in October (62%)</p></div>
+        <div class="segment-card"><span class="num" data-lang-content="nl">Oversluiten / verhogen</span><span class="num" data-lang-content="en">Refinance / increase</span><p class="big">13.944</p><p data-lang-content="nl">aanvragen in oktober (38%)</p><p data-lang-content="en">applications in October (38%)</p></div>
+      </div>
+      <div class="segment-grid two">
+        <div class="segment-card">
+          <h3 data-lang-content="nl">Wat er gebeurt</h3><h3 data-lang-content="en">What is happening</h3>
+          <p data-lang-content="nl">Geldverstrekkers verhoogden in september hun rentes. Adviseurs dienden daardoor aanvragen naar voren, wat de terugval in oktober mogelijk deels verklaart. Het aandeel starters daalde opvallend, en terwijl woningwaarden stegen bleef het gemiddelde hypotheekbedrag gelijk of daalde — een aanwijzing dat kopers meer eigen geld inzetten.</p>
+          <p data-lang-content="en">Lenders raised their rates in September. Advisers therefore brought applications forward, which may partly explain the drop in October. The share of first-time buyers fell noticeably, and while property values rose, the average mortgage amount stayed flat or fell — an indication that buyers are putting in more of their own money.</p>
+        </div>
+        <div class="segment-card">
+          <h3 data-lang-content="nl">Waar onze diensten helpen</h3><h3 data-lang-content="en">Where our services help</h3>
+          <p data-lang-content="nl">Met Hypotheekonderzoek.nl ziet een geldverstrekker hoe zijn eigen aanvragen, doorrekeningen en passeringen zich in zo'n schommeling verhouden tot de markt, per segment en per adviespraktijk. Hypotheekcijfer.nl en Renteadministratie.nl maken het effect van renteaanpassingen zichtbaar, en Portefeuillesignalen.nl helpt adviseurs bestaande klanten tijdig te benaderen wanneer oversluiten of verhogen aan de orde is.</p>
+          <p data-lang-content="en">With Hypotheekonderzoek.nl, a lender sees how its own applications, calculations and completions compare with the market during such a swing, by segment and by advice practice. Hypotheekcijfer.nl and Renteadministratie.nl make the effect of rate changes visible, and Portefeuillesignalen.nl helps advisers approach existing clients in time when refinancing or an increase is on the table.</p>
+        </div>
       </div>
     </section>
 
