@@ -150,6 +150,8 @@ a.aud-card .more{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--ye
 .navy-block .eyebrow{color:var(--yellow)}
 .navy-block h2{font-size:clamp(1.4rem,3vw,2rem);margin:6px 0 10px}
 .chip-list{display:flex;flex-wrap:wrap;gap:8px}
+.chip-list.brands{margin-top:16px}
+.chip-list.brands span{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);font-weight:600}
 .chip-list span{background:var(--yellow);color:var(--navy);font-weight:700;font-size:.85rem;padding:7px 12px;border-radius:999px}
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .kpi-row .segment-card{background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
