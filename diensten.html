@@ -14,7 +14,7 @@
     <a class="logo" data-nav href="index.html" aria-label="Blinqx Financial Services – home"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg><span>Blinqx <span class="sub">Financial Services</span></span></a>
     <nav class="topnav" aria-label="Hoofdmenu">
       <div class="hnav"><a data-nav data-key="home" href="index.html"><span data-lang-content="nl">Home</span><span data-lang-content="en">Home</span></a><a data-nav data-key="diensten" href="diensten.html"><span data-lang-content="nl">Diensten</span><span data-lang-content="en">Services</span></a><a data-nav data-key="doelgroepen" href="index.html#doelgroepen"><span data-lang-content="nl">Doelgroepen</span><span data-lang-content="en">Segments</span></a><a data-nav data-key="waarom" href="index.html#waarom"><span data-lang-content="nl">Waarom Blinqx</span><span data-lang-content="en">Why Blinqx</span></a><a data-nav data-key="ai" href="diensten.html#ai"><span data-lang-content="nl">AI</span><span data-lang-content="en">AI</span></a><a data-nav data-key="markt" href="diensten.html#markt"><span data-lang-content="nl">Markt</span><span data-lang-content="en">Market</span></a><a data-nav data-key="contact" href="index.html#contact"><span data-lang-content="nl">Contact</span><span data-lang-content="en">Contact</span></a></div>
-      <a class="hbtn yellow" data-nav href="index.html#contactform"><span data-lang-content="nl">Offerte<span class="long"> aanvragen</span></span><span data-lang-content="en"><span class="long">Request a quote</span><span class="short">Quote</span></span></a>
+      <a class="hbtn yellow" data-nav data-form href="index.html#contactform"><span data-lang-content="nl">Offerte<span class="long"> aanvragen</span></span><span data-lang-content="en"><span class="long">Request a quote</span><span class="short">Quote</span></span></a>
       <div class="langbtn" role="group" aria-label="Taal / Language">
         <button type="button" id="btn-nl" aria-pressed="true" onclick="setLang('nl')">NL</button>
         <button type="button" id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
@@ -542,19 +542,64 @@
       </div>
     </section>
 
-    <!-- CONTACT CTA -->
-    <section id="contact-cta">
-      <div class="partners-strip">
-        <div class="ptxt">
-          <p class="eyebrow" data-lang-content="nl">Contact</p>
-          <p class="eyebrow" data-lang-content="en">Contact</p>
-          <h3 data-lang-content="nl">In gesprek over een van onze diensten?</h3>
-          <h3 data-lang-content="en">Want to talk about one of our services?</h3>
-          <p style="margin-top:8px;color:var(--muted);" data-lang-content="nl">Het contactformulier en onze contactpersonen staan op de homepagina.</p>
-          <p style="margin-top:8px;color:var(--muted);" data-lang-content="en">The contact form and our contact persons are on the home page.</p>
-        </div>
-        <a class="btn" data-nav href="index.html#contact"><span data-lang-content="nl">Naar contact</span><span data-lang-content="en">To contact</span></a>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <p class="eyebrow" data-lang-content="nl">Contact</p>
+        <p class="eyebrow" data-lang-content="en">Contact</p>
+        <h2 data-lang-content="nl">In gesprek over een van onze diensten</h2>
+        <h2 data-lang-content="en">Talk to us about one of our services</h2>
       </div>
+      <form id="contactform" class="cform" novalidate>
+        <h3 class="people-head" style="margin-top:0" data-lang-content="nl">Stuur ons een bericht</h3>
+        <h3 class="people-head" style="margin-top:0" data-lang-content="en">Send us a message</h3>
+        <div class="cgrid">
+          <label class="full"><span class="ltxt"><span data-lang-content="nl">Uw vraag of bericht</span><span data-lang-content="en">Your question or message</span><span class="req">*</span></span>
+            <textarea name="bericht" rows="5" required data-ph-nl="Bijvoorbeeld: wij willen als geldverstrekker inzicht in onze positie per adviespraktijk." data-ph-en="For example: as a lender we would like insight into our position per advice practice."></textarea></label>
+          <label><span class="ltxt"><span data-lang-content="nl">Doelgroep</span><span data-lang-content="en">Segment</span></span>
+            <select name="doelgroep">
+              <option value="Banken" data-nl="Banken" data-en="Banks">Banken</option>
+              <option value="Verzekeraars" data-nl="Verzekeraars" data-en="Insurers">Verzekeraars</option>
+              <option value="Kredietbemiddelaars" data-nl="Kredietbemiddelaars" data-en="Credit intermediaries">Kredietbemiddelaars</option>
+              <option value="Serviceproviders" data-nl="Serviceproviders" data-en="Service providers">Serviceproviders</option>
+              <option value="Pensioenbedrijven & fondsen" data-nl="Pensioenbedrijven &amp; fondsen" data-en="Pension providers &amp; funds">Pensioenbedrijven &amp; fondsen</option>
+              <option value="Partners" data-nl="Partners" data-en="Partners">Partners</option>
+              <option value="Vastgoed" data-nl="Vastgoed" data-en="Real estate">Vastgoed</option>
+              <option value="Anders" data-nl="Anders" data-en="Other">Anders</option>
+            </select></label>
+          <label><span class="ltxt"><span data-lang-content="nl">Dienst</span><span data-lang-content="en">Service</span></span>
+            <select name="dienst">
+              <option value="Algemeen / meerdere diensten" data-nl="Algemeen / meerdere diensten" data-en="General / multiple services">Algemeen / meerdere diensten</option>
+              <option value="Hypotheekcijfer.nl" data-nl="Hypotheekcijfer.nl" data-en="Hypotheekcijfer.nl">Hypotheekcijfer.nl</option>
+              <option value="Pensioencijfer.nl" data-nl="Pensioencijfer.nl" data-en="Pensioencijfer.nl">Pensioencijfer.nl</option>
+              <option value="Hypotheekonderzoek.nl" data-nl="Hypotheekonderzoek.nl" data-en="Hypotheekonderzoek.nl">Hypotheekonderzoek.nl</option>
+              <option value="Assurantie-onderzoek.nl" data-nl="Assurantie-onderzoek.nl" data-en="Assurantie-onderzoek.nl">Assurantie-onderzoek.nl</option>
+              <option value="Renteadministratie.nl (FinData)" data-nl="Renteadministratie.nl (FinData)" data-en="Renteadministratie.nl (FinData)">Renteadministratie.nl (FinData)</option>
+              <option value="HypotheekAdviseurZoeker.nl" data-nl="HypotheekAdviseurZoeker.nl" data-en="HypotheekAdviseurZoeker.nl">HypotheekAdviseurZoeker.nl</option>
+              <option value="Portefeuillesignalen.nl" data-nl="Portefeuillesignalen.nl" data-en="Portefeuillesignalen.nl">Portefeuillesignalen.nl</option>
+              <option value="RWWR.nl" data-nl="RWWR.nl" data-en="RWWR.nl">RWWR.nl</option>
+              <option value="SMART module — eBlinqx Connect" data-nl="SMART module — eBlinqx Connect" data-en="SMART module — eBlinqx Connect">SMART module — eBlinqx Connect</option>
+              <option value="Hypotheekvalidatie" data-nl="Hypotheekvalidatie" data-en="Hypotheekvalidatie">Hypotheekvalidatie</option>
+              <option value="DossierValidator.nl" data-nl="DossierValidator.nl" data-en="DossierValidator.nl">DossierValidator.nl</option>
+              <option value="Procesversneller" data-nl="Procesversneller" data-en="Procesversneller">Procesversneller</option>
+              <option value="Blinqx Partners" data-nl="Blinqx Partners" data-en="Blinqx Partners">Blinqx Partners</option>
+              <option value="ToolsVoorVastgoed.nl" data-nl="ToolsVoorVastgoed.nl" data-en="ToolsVoorVastgoed.nl">ToolsVoorVastgoed.nl</option>
+            </select></label>
+          <label><span class="ltxt"><span data-lang-content="nl">Naam</span><span data-lang-content="en">Name</span><span class="req">*</span></span><input name="naam" type="text" autocomplete="name" required></label>
+          <label><span class="ltxt"><span data-lang-content="nl">Organisatie</span><span data-lang-content="en">Organisation</span><span class="req">*</span></span><input name="organisatie" type="text" autocomplete="organization" required></label>
+          <label><span class="ltxt"><span data-lang-content="nl">E-mailadres</span><span data-lang-content="en">E-mail address</span><span class="req">*</span></span><input name="email" type="email" autocomplete="email" required></label>
+          <label><span class="ltxt"><span data-lang-content="nl">Telefoon</span><span data-lang-content="en">Phone</span></span><input name="telefoon" type="tel" autocomplete="tel"></label>
+        </div>
+        <label class="check"><input type="checkbox" name="akkoord"> <span><span data-lang-content="nl">Ik ga akkoord met de verwerking van mijn gegevens volgens de <a data-nav href="privacy.html">privacyverklaring</a>.</span><span data-lang-content="en">I agree to the processing of my data in accordance with the <a data-nav href="privacy.html">privacy statement</a>.</span><span class="req">*</span></span></label>
+        <div class="cactions">
+          <button type="submit" class="btn"><span data-lang-content="nl">Bericht versturen</span><span data-lang-content="en">Send message</span></button>
+          <p class="cnote" data-lang-content="nl">Uw e-mailprogramma opent met een ingevuld bericht aan Jeroen Oversteegen en Igor Driessen. Verstuur dat bericht om uw aanvraag af te ronden.</p>
+          <p class="cnote" data-lang-content="en">Your e-mail program opens with a pre-filled message to Jeroen Oversteegen and Igor Driessen. Send that message to complete your request.</p>
+        </div>
+        <p id="cerr" class="cerr" role="status" aria-live="polite"></p>
+      </form>
+      <p class="cnote" style="margin-top:14px" data-lang-content="nl">Liever direct contact? Onze <a data-nav href="index.html#contact" style="color:var(--yellow)">contactpersonen</a> staan op de homepagina.</p>
+      <p class="cnote" style="margin-top:14px" data-lang-content="en">Prefer direct contact? Our <a data-nav href="index.html#contact" style="color:var(--yellow)">contact persons</a> are on the home page.</p>
     </section>
 
   </div>

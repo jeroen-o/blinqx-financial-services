@@ -7,6 +7,7 @@ function currentLang(){
   return 'nl';
 }
 function withLang(href,l){
+  if(href.charAt(0)==='#') return href;
   var parts=href.split('#'), base=parts[0], hash=parts[1]?'#'+parts[1]:'';
   var qi=base.indexOf('?'), path=qi===-1?base:base.slice(0,qi), qs=new URLSearchParams(qi===-1?'':base.slice(qi+1));
   if(l==='en') qs.set('lang','en'); else qs.delete('lang');
@@ -51,6 +52,7 @@ function setFilter(f){
     document.addEventListener('click',function(e){if(!mm.hidden&&!mm.contains(e.target))setMenu(false);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setMenu(false);mb.focus();}});
   }
+  if(document.getElementById('contactform')) document.querySelectorAll('a[data-form]').forEach(function(x){x.setAttribute('href','#contactform');});
   setLang(currentLang());
   var dg=new URLSearchParams(location.search).get('doelgroep');
   var valid=['banken','verzekeraars','kredietbemiddelaars','serviceproviders','pensioen','partners','vastgoed'];
