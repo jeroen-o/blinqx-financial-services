@@ -1,7 +1,15 @@
 # blinqx-financial-services
 
-Website (design gebaseerd op hypotheekonderzoek.nl) voor **financial-services.blinqx.tech**: één standalone `index.html` (NL/EN), zonder build-step en zonder externe API's (ook geen externe fonts).
+Website voor **financial-services.blinqx.tech** (design gebaseerd op hypotheekonderzoek.nl). Statische HTML, geen build-step, geen externe API's of fonts.
 
-- Taalwissel via de knop rechtsboven, of direct met `#nl` / `#en` in de URL.
-- Doelgroepfilter: Banken, Verzekeraars, Kredietbemiddelaars, Serviceproviders, Pensioenbedrijven & fondsen, Partners, Vastgoed.
-- Er zijn geen links naar externe diensten of andere pagina's.
+| Bestand | Inhoud |
+|---|---|
+| `index.html` | Homepagina: hero, doelgroepen, uitgelichte diensten, Blinqx, AI, markt, contactpersonen |
+| `diensten.html` | Alle 14 diensten met doelgroepfilter, AI-agents, marktduiding, positie in de keten |
+| `assets/site.css` | Gedeelde stijl |
+| `assets/site.js` | Taalwissel, navigatie, doelgroepfilter |
+| `img/` | Portretten contactpersonen |
+
+- Taal: knop NL/EN of `?lang=en`; blijft behouden bij navigeren.
+- Doelgroep direct openen: `diensten.html?doelgroep=banken` (ook `verzekeraars`, `kredietbemiddelaars`, `serviceproviders`, `pensioen`, `partners`, `vastgoed`).
+- Geen links naar externe sites; alleen tussen eigen pagina's.
