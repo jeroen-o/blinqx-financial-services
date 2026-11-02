@@ -113,8 +113,9 @@ section{padding:72px 0}
 .people-head{font-size:1.2rem;margin:36px 0 14px}
 .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .person{display:flex;align-items:center;gap:12px;background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:14px 16px}
-.avatar{flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.avatar{flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:1rem}
 .pname{font-weight:600;color:#fff}
+img.avatar{object-fit:cover;display:block;border:2px solid var(--yellow)}
 footer{background:var(--navy);color:#cfd8e6;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
 footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;max-width:1160px;margin:0 auto}
 footer p{font-size:.85rem}
@@ -710,7 +711,7 @@ html[data-lang="nl"] .segment-card span.num[data-lang-content="nl"],html[data-la
       <h3 class="people-head" data-lang-content="nl">Contactpersonen</h3>
       <h3 class="people-head" data-lang-content="en">Contact persons</h3>
       <div class="people">
-        <div class="person"><span class="avatar" aria-hidden="true">ID</span><span class="pname">Igor Driessen</span></div>
+        <div class="person"><img class="avatar" src="img/igor-driessen.jpg" alt="Igor Driessen" width="56" height="56" loading="lazy"><span class="pname">Igor Driessen</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">OK</span><span class="pname">Oscar Kuypers</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">BD</span><span class="pname">Bob van Dam</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">JO</span><span class="pname">Jeroen Oversteegen</span></div>
