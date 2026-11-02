@@ -254,6 +254,21 @@ html[data-lang="nl"] .lhead strong[data-lang-content="nl"],html[data-lang="en"] 
 @media (max-width:1023px){.hnav{display:none}}
 @media (max-width:1239px){.hnav a[data-key="home"],.hnav a[data-key="contact"]{display:none}.hnav a{padding:8px 8px;font-size:.9rem}.topnav{gap:8px}.hbtn{padding:9px 14px}}
 
+/* regelgeving */
+#regelgeving .lede-sm{color:var(--muted);font-size:1.05rem;margin-top:6px}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-bottom:16px;counter-reset:t}
+.tstep{background:var(--navy);color:#fff;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;border-top:4px solid var(--yellow)}
+.tstep strong{color:var(--yellow);font-size:.95rem}
+.tstep small{color:#d5deeb;font-size:.85rem;line-height:1.4}
+.reg-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))}
+.reg-grid .segment-card{border-top:4px solid var(--yellow)}
+.reg-help{margin-top:16px}
+.reg-help ul{margin:10px 0 0;padding-left:18px;color:#d5deeb;flex-direction:column;gap:6px}
+html[data-lang="nl"] .reg-help ul[data-lang-content="nl"],html[data-lang="en"] .reg-help ul[data-lang-content="en"]{display:flex}
+.reg-help .reg-note{margin-top:12px;font-size:.85rem;color:#cfd8e6!important}
+.reg-help h3{margin-top:6px}
+#regelgeving .note{font-size:.82rem;color:var(--muted);margin-top:10px}
+
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
 html[data-lang="nl"] span[data-lang-content="nl"],html[data-lang="en"] span[data-lang-content="en"]{display:inline}
