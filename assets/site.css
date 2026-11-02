@@ -177,6 +177,21 @@ a.aud-card .more{margin-top:auto;font-size:.85rem;font-weight:700;color:var(--ye
 .home-markt .kpi-row .segment-card .num{background:var(--yellow-soft);color:#6b5200}
 @media (max-width:760px){.navy-block{grid-template-columns:1fr;padding:24px}}
 
+/* footer-links en juridische pagina's */
+.flinks{display:flex;gap:16px;flex-wrap:wrap}
+.flinks a{color:#cfd8e6;text-decoration:underline;text-underline-offset:3px}
+.flinks a:hover,.flinks a[aria-current="page"]{color:var(--yellow)}
+.hero.small{padding:48px 0 52px}
+.hero.small h1{font-size:clamp(1.8rem,4vw,2.6rem)}
+.legal{max-width:780px}
+.legal > div{flex-direction:column;gap:14px}
+html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .legal > div[data-lang-content="en"]{display:flex}
+.legal h2{font-size:1.3rem;margin-top:20px}
+.legal p,.legal li{color:var(--ink)}
+.legal ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.legal .meta{color:var(--muted);font-size:.9rem}
+.legal .box{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);border-radius:var(--r);padding:18px 20px}
+
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
 html[data-lang="nl"] span[data-lang-content="nl"],html[data-lang="en"] span[data-lang-content="en"]{display:inline}
