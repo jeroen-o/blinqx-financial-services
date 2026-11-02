@@ -5,217 +5,133 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Blinqx Financial Services</title>
 <meta name="description" content="Blinqx Financial Services: data-, validatie- en signaleringsdiensten voor banken, verzekeraars, kredietbemiddelaars, serviceproviders, pensioenbedrijven, partners en vastgoed.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
 <style>
-/* Layout concept: sticky segmented audience-filter (pill nav) drives a tagged service grid — mirrors how rate/data feeds route to the right recipient in the Blinqx ecosystem. */
+/* Design overgenomen van hypotheekonderzoek.nl: navy + geel, systeemfont, ronde knoppen, kaarten met gele bovenrand. */
 :root{
-  --bg:#ffffff;
-  --surface:#f6f4ee;
-  --surface-2:#eeebe2;
-  --fg:#15171b;
-  --muted:#5c6066;
-  --line:#e3e0d6;
-  --accent:#FFCD00;
-  --accent-ink:#15171b;
-  --accent-dim:#fff2b8;
-  --mono:#5c6066;
-  --radius:14px;
-  --font-display:'Archivo',Arial,sans-serif;
-  --font-body:'Work Sans',Arial,sans-serif;
-  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --navy:#1e2533; --navy-2:#2b3345; --yellow:#ffcc00; --yellow-soft:#fff5cc; --yellow-ink:#7a5c00;
+  --ink:#1b2535; --muted:#5b6678; --line:#e1e6ee; --bg:#f5f7fa; --card:#fff;
+  /* aliassen voor bestaande inline styles */
+  --fg:var(--ink); --surface:var(--card); --accent:var(--yellow);
+  --r:14px;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#101113;
-    --surface:#17181b;
-    --surface-2:#1e2024;
-    --fg:#f1f0ea;
-    --muted:#9a9ea5;
-    --line:#2a2c30;
-    --accent:#FFCD00;
-    --accent-ink:#15171b;
-    --accent-dim:#3a3315;
-    --mono:#9a9ea5;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#101113;
-  --surface:#17181b;
-  --surface-2:#1e2024;
-  --fg:#f1f0ea;
-  --muted:#9a9ea5;
-  --line:#2a2c30;
-  --accent:#FFCD00;
-  --accent-ink:#15171b;
-  --accent-dim:#3a3315;
-  --mono:#9a9ea5;
-  color-scheme:dark;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--fg);
-  font-family:var(--font-body);
-  font-size:16px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{
-  padding-left:max(20px, env(safe-area-inset-left,0px));
-  padding-right:max(20px, env(safe-area-inset-right,0px));
-}
-h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-0.01em;text-wrap:balance;margin:0;}
-p{margin:0;}
-.eyebrow{
-  font-family:var(--font-mono);
-  font-size:12.5px;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-  color:var(--mono);
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+h1,h2,h3{margin:0;letter-spacing:-.015em;line-height:1.15;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid #e0a800;outline-offset:2px;border-radius:4px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow-ink)}
+
 /* header */
-header{
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
-  background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg);}
-.header-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding-block:14px;max-width:1180px;margin:0 auto;
-}
-.logo{display:flex;align-items:baseline;gap:8px;font-family:var(--font-display);font-weight:800;font-size:18px;}
-.logo .mark{
-  background:var(--accent);color:var(--accent-ink);
-  padding:3px 8px;border-radius:6px;font-weight:900;
-}
-.logo .sub{font-family:var(--font-mono);font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.03em;}
-.header-actions{display:flex;align-items:center;gap:10px;}
-.langbtn{
-  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;
-  background:var(--surface);border:1px solid var(--line);color:var(--fg);
-  border-radius:999px;padding:7px 4px;cursor:pointer;display:flex;gap:2px;
-}
-.langbtn button{
-  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;
-  background:transparent;border:0;color:var(--muted);border-radius:999px;
-  padding:5px 10px;cursor:pointer;
-}
-.langbtn button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700;}
-.langbtn button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;max-width:1160px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:#fff;white-space:nowrap;letter-spacing:-.01em}
+.logo svg{flex:0 0 auto}
+.logo .sub{color:var(--yellow)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.langbtn{display:flex;gap:2px;border:1.5px solid rgba(255,255,255,.55);border-radius:999px;padding:3px}
+.langbtn button{font:inherit;font-size:.85rem;font-weight:600;background:transparent;border:0;color:#cfd8e6;border-radius:999px;padding:5px 11px;cursor:pointer}
+.langbtn button[aria-pressed="true"]{background:var(--yellow);color:var(--navy)}
 
-main{max-width:1180px;margin:0 auto;}
+main{display:block}
 
-/* hero */
-.hero{padding-block:52px 36px;display:grid;gap:18px;max-width:780px;}
-.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.05;}
-.hero .lede{font-size:18px;color:var(--muted);max-width:60ch;}
-.hero .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
-.meta-chip{
-  font-family:var(--font-mono);font-size:12px;letter-spacing:.03em;
-  border:1px solid var(--line);color:var(--muted);padding:6px 10px;border-radius:999px;
-}
+/* hero (full-bleed navy) */
+.hero{position:relative;isolation:isolate;color:#fff;padding:72px 0 88px;display:grid;gap:16px}
+.hero::before{content:"";position:absolute;inset:0 calc(50% - 50vw);background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);z-index:-1}
+.hero > div{gap:16px;max-width:820px}
+.hero .eyebrow{color:var(--yellow)}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.02em}
+.hero .lede{font-size:1.15rem;color:#d5deeb;max-width:680px}
+.hero .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.meta-chip{font-size:.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,.7);color:#fff;padding:7px 14px;border-radius:999px}
+.meta-chip:first-child,.meta-chip:nth-child(2){background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
 
-/* audience nav */
-.audience-nav{
-  position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:20;
-  background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);
-  margin-top:8px;
-}
-.pill-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
-.pill-row::-webkit-scrollbar{display:none;}
-.pill{
-  flex:0 0 auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.02em;
-  background:var(--surface);border:1px solid var(--line);color:var(--fg);
-  padding:9px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;
-}
-.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700;}
-.pill:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+/* audience filter */
+.audience-nav{position:sticky;top:60px;z-index:20;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line)}
+.pill-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.pill-row::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;font:inherit;font-size:.9rem;font-weight:600;background:#fff;border:1.5px solid var(--line);color:var(--navy);padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.pill:hover{border-color:var(--navy)}
+.pill[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
 
 /* sections */
-section{padding-block:40px;}
-.section-head{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;max-width:70ch;}
-.section-head h2{font-size:clamp(22px,4vw,30px);}
+section{padding:72px 0}
+.section-head{display:flex;flex-direction:column;gap:6px;margin-bottom:32px;max-width:760px}
+.section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem)}
 
-/* segment cards */
-.segment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
-.segment-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0;
-}
-.segment-card .num{font-family:var(--font-mono);font-size:12px;color:var(--mono);}
-.segment-card h3{font-size:16.5px;}
-.segment-card p{color:var(--muted);font-size:14px;}
+/* kaarten */
+.segment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.segment-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.segment-card .num{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--yellow-soft);color:#6b5200;padding:3px 9px;border-radius:999px}
+.segment-card h3{font-size:1.1rem}
+.segment-card p{color:var(--muted);font-size:.95rem}
+#segments .segment-card{border-top:4px solid var(--yellow)}
 
-/* services grid */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
-.service-card{
-  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
-  padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;
-  transition:opacity .15s ease;
-}
-.service-card[hidden]{display:none;}
-.service-card .svc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
-.service-card h3{font-size:18px;}
-.service-card .url{font-family:var(--font-mono);font-size:11.5px;color:var(--mono);word-break:break-all;}
-.service-card p.desc{color:var(--muted);font-size:14.5px;}
-.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
-.tag{
-  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;
-  background:var(--surface-2);color:var(--muted);padding:4px 8px;border-radius:5px;
-}
-.service-card a.visit{
-  font-family:var(--font-mono);font-size:12.5px;color:var(--fg);text-decoration:none;
-  border-bottom:1px solid var(--accent);align-self:flex-start;padding-bottom:1px;margin-top:4px;
-}
+/* about: navy kernblok zoals 'Conversie in het advies' */
+#about-blinqx > div:last-child{background:var(--navy);color:#fff;border-radius:var(--r);padding:28px}
+#about-blinqx > div:last-child p{color:#d5deeb}
+#about-blinqx .segment-card{background:var(--yellow);border-color:var(--yellow);color:var(--navy)}
+#about-blinqx .segment-card .num{background:var(--navy);color:var(--yellow)}
 
-/* partners strip */
-.partners-strip{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;
-}
-.partners-strip .ptxt{max-width:50ch;}
-.btn{
-  font-family:var(--font-mono);font-size:13px;letter-spacing:.02em;
-  background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;
-  padding:12px 18px;font-weight:700;text-decoration:none;display:inline-block;white-space:nowrap;
-}
+/* diensten */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.service-card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--yellow);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.service-card[hidden]{display:none}
+.service-card h3{font-size:1.1rem}
+.service-card .url{font-size:.82rem;font-weight:600;color:var(--yellow-ink);word-break:break-all}
+.service-card p.desc{color:var(--muted);font-size:.94rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--yellow-soft);color:#6b5200;padding:3px 9px;border-radius:999px}
 
-/* contact */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
-.contact-item{display:flex;flex-direction:column;gap:4px;}
-.contact-item .label{font-family:var(--font-mono);font-size:11.5px;color:var(--mono);text-transform:uppercase;letter-spacing:.06em;}
-.contact-item .val{font-size:15px;}
+/* partner-CTA */
+.partners-strip{background:var(--navy);color:#fff;border-radius:var(--r);padding:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.partners-strip .ptxt{max-width:62ch}
+.partners-strip .eyebrow{color:var(--yellow)}
+.partners-strip h3{font-size:1.4rem}
+.partners-strip p[style]{color:#d5deeb!important}
+.btn{display:inline-block;background:var(--yellow);color:var(--navy);padding:11px 20px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;border:0;white-space:nowrap}
 
-footer{border-top:1px solid var(--line);padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));}
-footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;}
-footer p{font-family:var(--font-mono);font-size:12px;color:var(--mono);}
+/* positie: kaarten met gele rand */
+#positioning .segment-card{border-top:4px solid var(--yellow)}
+#positioning .segment-card:nth-child(3){background:var(--yellow);border-color:var(--yellow)}
+#positioning .segment-card:nth-child(3) p{color:var(--navy)}
+#positioning .segment-card:nth-child(3) .num{background:var(--navy);color:var(--yellow)}
 
-[data-lang-content]{display:none;}
-html[data-lang="nl"] [data-lang-content="nl"]{display:revert;}
-html[data-lang="en"] [data-lang-content="en"]{display:revert;}
-html[data-lang="nl"] span[data-lang-content="nl"],
-html[data-lang="en"] span[data-lang-content="en"]{display:inline;}
-html[data-lang="nl"] div[data-lang-content="nl"],
-html[data-lang="en"] div[data-lang-content="en"]{display:block;}
+/* contact (full-bleed navy) */
+#contact{position:relative;isolation:isolate;color:#fff}
+#contact::before{content:"";position:absolute;inset:0 calc(50% - 50vw);background:var(--navy);z-index:-1}
+#contact .eyebrow{color:var(--yellow)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.contact-item{display:flex;flex-direction:column;gap:4px;background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:18px}
+.contact-item .label{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow)}
+.contact-item .val{font-size:1rem;color:#fff;word-break:break-word}
+
+footer{background:var(--navy);color:#cfd8e6;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
+footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;max-width:1160px;margin:0 auto}
+footer p{font-size:.85rem}
+
+[data-lang-content]{display:none}
+html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
+html[data-lang="nl"] span[data-lang-content="nl"],html[data-lang="en"] span[data-lang-content="en"]{display:inline}
+html[data-lang="nl"] div[data-lang-content="nl"],html[data-lang="en"] div[data-lang-content="en"]{display:grid}
+html[data-lang="nl"] .segment-card span.num[data-lang-content="nl"],html[data-lang="en"] .segment-card span.num[data-lang-content="en"]{display:inline-block}
 
 @media (max-width:640px){
-  .hero{padding-block:36px 24px;}
-  section{padding-block:30px;}
-  .partners-strip{flex-direction:column;align-items:flex-start;}
-  #about-blinqx > div{grid-template-columns:1fr !important;}
+  .hero{padding:44px 0 56px}
+  section{padding:48px 0}
+  .partners-strip{flex-direction:column;align-items:flex-start;padding:24px}
+  #about-blinqx > div{grid-template-columns:1fr!important}
+  .logo{font-size:.95rem}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap header-inner">
-    <div class="logo"><span class="mark">Blinqx</span><span class="sub">Financial Services</span></div>
+    <div class="logo"><svg width="24" height="26" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg><span>Blinqx <span class="sub">Financial Services</span></span></div>
     <div class="header-actions">
       <div class="langbtn" role="group" aria-label="Taal / Language">
         <button type="button" id="btn-nl" aria-pressed="true" onclick="setLang('nl')">NL</button>
@@ -285,7 +201,7 @@ html[data-lang="en"] div[data-lang-content="en"]{display:block;}
         <h2 data-lang-content="nl">Eén platformgedachte, gebundeld vanuit meerdere sectoren</h2>
         <h2 data-lang-content="en">One platform philosophy, bundled from multiple sectors</h2>
       </div>
-      <div style="display:grid;gap:14px;grid-template-columns:1.1fr .9fr;">
+      <div style="display:grid;gap:16px;grid-template-columns:1.1fr .9fr;align-items:start;">
         <div style="display:flex;flex-direction:column;gap:12px;min-width:0;">
           <p data-lang-content="nl">Blinqx Financial Services is geen losstaand initiatief, maar de financiële tak van Blinqx: een organisatie van ruim 700 collega's die SaaS-platformen bouwt en beheert voor professionele dienstverlening. Diezelfde kennis van workflow-automatisering, data-infrastructuur en compliance zet Blinqx ook in buiten de financiële sector — onder meer in de accountancy en de juridische sector. Dat schaalvoordeel komt terug in onze diensten: wat elders binnen Blinqx is ontwikkeld aan beveiliging, datavalidatie en procesautomatisering, wordt hier toegepast op hypotheken, verzekeringen en pensioenen.</p>
           <p data-lang-content="nl">Die bundeling krijgt concreet vorm in eBlinqx: het platform waarin de kennis en techniek van bekende merken samenkomt — Adviesbox, Fastlane, FasterForward, MijnTP, Nationale Hypotheekbond, Finly, FincomNect, Dias, Finrust, Yesco, MijnHuisZaken en APLAZA. In plaats van los van elkaar werkende systemen per merk, bouwt Blinqx één doorlopende platforminfrastructuur waarop deze merken en de diensten op deze pagina voortbouwen.</p>
