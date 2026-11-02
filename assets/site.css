@@ -88,9 +88,6 @@ section{padding:72px 0}
 
 /* positie: kaarten met gele rand */
 #positioning .segment-card{border-top:4px solid var(--yellow)}
-#positioning .segment-card:nth-child(3){background:var(--yellow);border-color:var(--yellow)}
-#positioning .segment-card:nth-child(3) p{color:var(--navy)}
-#positioning .segment-card:nth-child(3) .num{background:var(--navy);color:var(--yellow)}
 
 /* contact (full-bleed navy) */
 #contact{position:relative;isolation:isolate;color:#fff}
@@ -134,7 +131,7 @@ html[data-lang="nl"] .flow small[data-lang-content="nl"],html[data-lang="en"] .f
 
 /* navigatie */
 a.logo{text-decoration:none}
-section[id]{scroll-margin-top:76px}
+section[id],#contactform{scroll-margin-top:76px}
 body[data-page="diensten"] section[id]{scroll-margin-top:140px}
 .mainnav{gap:2px}.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 a.btn{text-decoration:none}
@@ -212,9 +209,35 @@ html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .
 .mlinks{display:flex;flex-direction:column}
 .mlinks a{color:#e6ecf5;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem}
 .mlinks a:hover,.mlinks a[aria-current="page"]{color:var(--yellow)}
-@media (max-width:640px){.topnav{gap:6px}.hbtn{padding:8px 12px;font-size:.85rem}.hbtn.home{display:none}.langbtn button{padding:5px 8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-inner{gap:8px}}
+@media (max-width:760px){.hbtn.home{display:none}}
+@media (max-width:640px){.topnav{gap:6px}.hbtn{padding:8px 12px;font-size:.85rem}.langbtn button{padding:5px 8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-inner{gap:8px}}
 @media (max-width:440px){.mtxt{display:none}.menu-btn{padding:8px 11px}}
-@media (max-width:380px){.hbtn.yellow{display:none}}
+@media (max-width:700px){.hbtn .long{display:none}}
+@media (max-width:372px){.hbtn.yellow{display:none}}
+
+/* positie in de markt: gelaagd schema */
+#positioning .lede-sm{color:var(--muted);font-size:1.05rem;margin-top:6px}
+.stack{position:relative;border:2px dashed #b9c3d3;border-radius:18px;padding:44px 20px 20px;display:flex;flex-direction:column;align-items:stretch;gap:6px;background:#fff}
+.frame-label{position:absolute;top:-13px;left:20px;right:20px;width:max-content;max-width:calc(100% - 40px);background:var(--bg);padding:2px 10px;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--muted)}
+.layer{border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.lhead{display:flex;align-items:center;gap:10px;font-size:1.02rem}
+.lnum{flex:0 0 28px;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:.9rem;background:var(--navy);color:#fff}
+.l-users{background:var(--bg);border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#fff;border:1.5px solid var(--line);color:var(--navy);font-weight:600;font-size:.88rem;padding:6px 12px;border-radius:999px}
+.l-blinqx{background:var(--yellow);color:var(--navy);box-shadow:0 10px 26px rgba(224,168,0,.28)}
+.l-blinqx .lnum{background:var(--navy);color:var(--yellow)}
+.lgroups{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px}
+.lgroup{background:rgba(255,255,255,.55);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.lgroup small{font-size:.82rem;color:#3a3a2a;line-height:1.4}
+.l-core{background:var(--navy);color:#fff}
+.l-core .lnum{background:var(--yellow);color:var(--navy)}
+.l-core p{color:#d5deeb;font-size:.95rem}
+.arrow{align-self:center;color:var(--muted);font-size:1.2rem;line-height:1}
+.pos-sub{font-size:1.3rem;margin:36px 0 14px}
+.pos-why{grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+html[data-lang="nl"] .lhead strong[data-lang-content="nl"],html[data-lang="en"] .lhead strong[data-lang-content="en"]{display:inline}
+@media (max-width:640px){.stack{padding:52px 12px 12px}.layer{padding:14px}.frame-label{font-size:.72rem;left:12px;max-width:calc(100% - 24px);top:-14px}}
 
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
