@@ -146,7 +146,7 @@ a.logo{text-decoration:none}
 .menulink{color:#fff;text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600}
 .menulink:hover,.menulink[aria-current="page"]{background:var(--navy-2);color:var(--yellow)}
 @media (max-width:860px){.mainnav{display:none}.menu{display:block}}
-@media (max-width:480px){.header-inner{gap:8px}.logo .sub{display:none}.header-actions{gap:6px}.langbtn button{padding:5px 8px}.menu summary{padding:7px 10px}}
+@media (max-width:480px){.header-inner{gap:8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-actions{gap:6px}.langbtn button{padding:5px 8px}.menu summary{padding:7px 11px}.mtxt{display:none}}
 .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 a.btn{text-decoration:none}
