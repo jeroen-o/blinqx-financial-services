@@ -214,10 +214,10 @@ html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .
 .mlinks{display:flex;flex-direction:column}
 .mlinks a{color:#e6ecf5;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem}
 .mlinks a:hover,.mlinks a[aria-current="page"]{color:var(--yellow)}
-@media (max-width:760px){.hbtn.home{display:none}}
 @media (max-width:640px){.topnav{gap:6px}.hbtn{padding:8px 12px;font-size:.85rem}.langbtn button{padding:5px 8px}.logo > span{display:flex;flex-direction:column;line-height:1.05;font-size:.95rem}.logo .sub{font-size:.8rem}.header-inner{gap:8px}}
 @media (max-width:440px){.mtxt{display:none}.menu-btn{padding:8px 11px}}
-@media (max-width:700px){.hbtn .long{display:none}}
+.hbtn .short{display:none}
+@media (max-width:700px){.hbtn .long{display:none}.hbtn .short{display:inline}}
 @media (max-width:372px){.hbtn.yellow{display:none}}
 
 /* positie in de markt: gelaagd schema */
@@ -243,6 +243,15 @@ html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .
 .pos-why{grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
 html[data-lang="nl"] .lhead strong[data-lang-content="nl"],html[data-lang="en"] .lhead strong[data-lang-content="en"]{display:inline}
 @media (max-width:640px){.stack{padding:52px 12px 12px}.layer{padding:14px}.frame-label{font-size:.72rem;left:12px;max-width:calc(100% - 24px);top:-14px}}
+
+/* navigatie zichtbaar in de header */
+.hnav{display:flex;align-items:center;gap:2px;margin-right:6px}
+.hnav a{color:#cfd8e6;text-decoration:none;font-size:.92rem;font-weight:600;padding:8px 10px;border-radius:8px;white-space:nowrap;position:relative}
+.hnav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.hnav a[aria-current="page"]{color:#fff}
+.hnav a[aria-current="page"]::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;border-radius:2px;background:var(--yellow)}
+@media (min-width:1240px){.menu-btn{display:none}}
+@media (max-width:1239px){.hnav{display:none}}
 
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
