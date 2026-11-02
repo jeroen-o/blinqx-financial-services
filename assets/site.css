@@ -192,6 +192,26 @@ html[data-lang="nl"] .legal > div[data-lang-content="nl"],html[data-lang="en"] .
 .legal .meta{color:var(--muted);font-size:.9rem}
 .legal .box{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);border-radius:var(--r);padding:18px 20px}
 
+/* contactformulier */
+.cform{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:26px;margin:28px 0 8px;max-width:900px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.cgrid .full{grid-column:1/-1}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;font-weight:700;color:#fff}
+.cform input,.cform select,.cform textarea{font:inherit;font-weight:400;font-size:.95rem;color:var(--ink);background:#fff;border:1px solid #cfd6e1;border-radius:10px;padding:11px 12px;width:100%}
+.cform textarea{resize:vertical;min-height:110px}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:3px solid #e0a800;outline-offset:1px}
+.cform [aria-invalid="true"]{border-color:#ffb4a8;box-shadow:0 0 0 2px rgba(255,180,168,.6)}
+.cform .req{color:var(--yellow);margin-left:2px}
+.cform label.check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:.9rem;color:#d5deeb;margin-top:16px}
+.cform label.check input{width:18px;height:18px;margin-top:2px;flex:0 0 auto}
+.cform label.check a{color:var(--yellow)}
+.cactions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:18px}
+.cactions .btn{font:inherit;font-weight:700;cursor:pointer}
+.cnote{font-size:.82rem;color:#cfd8e6;max-width:52ch}
+.cerr{min-height:1.2em;margin-top:12px!important;font-weight:600;color:#ffb4a8}
+.cerr.ok{color:#bfe8d3}
+@media (max-width:640px){.cgrid{grid-template-columns:1fr}.cform{padding:20px}}
+
 [data-lang-content]{display:none}
 html[data-lang="nl"] [data-lang-content="nl"],html[data-lang="en"] [data-lang-content="en"]{display:revert}
 html[data-lang="nl"] span[data-lang-content="nl"],html[data-lang="en"] span[data-lang-content="en"]{display:inline}

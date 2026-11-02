@@ -22,6 +22,9 @@ function setLang(l){
     if(!a.dataset.base) a.dataset.base=a.getAttribute('href');
     a.setAttribute('href',withLang(a.dataset.base,l));
   });
+  document.querySelectorAll('[data-nl][data-en]').forEach(function(o){o.textContent=o.getAttribute('data-'+l);});
+  document.querySelectorAll('[data-ph-nl]').forEach(function(t){t.setAttribute('placeholder',t.getAttribute('data-ph-'+l));});
+  var ce=document.getElementById('cerr'); if(ce) ce.textContent='';
   var hash=location.hash==='#en'||location.hash==='#nl'?'':location.hash;
   try{history.replaceState(null,'',withLang(location.pathname.split('/').pop()+location.search+hash,l));}catch(e){}
 }
@@ -50,4 +53,31 @@ function setFilter(f){
     setFilter(valid.indexOf(dg)!==-1?dg:'all');
     if(valid.indexOf(dg)!==-1){var s=document.getElementById('services'); if(s) setTimeout(function(){s.scrollIntoView();},0);}
   }
+})();
+
+// Contactformulier: opent e-mailprogramma met ingevuld bericht (geen externe dienst)
+(function(){
+  var f=document.getElementById('contactform'); if(!f) return;
+  var TO='jeroen.oversteegen@blinqx.tech,igor.driessen@blinqx.tech';
+  var T={nl:{miss:'Vul nog in: ',email:'een geldig e-mailadres',akkoord:'akkoord met de privacyverklaring',ok:'Uw e-mailprogramma wordt geopend. Verstuur het bericht om uw aanvraag af te ronden.',
+             f:{bericht:'uw bericht',naam:'naam',organisatie:'organisatie'}},
+         en:{miss:'Please complete: ',email:'a valid e-mail address',akkoord:'agreement with the privacy statement',ok:'Your e-mail program is opening. Send the message to complete your request.',
+             f:{bericht:'your message',naam:'name',organisatie:'organisation'}}};
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var l=document.documentElement.getAttribute('data-lang')||'nl', t=T[l], el=f.elements, err=document.getElementById('cerr'), miss=[];
+    ['bericht','naam','organisatie','email'].forEach(function(n){el[n].removeAttribute('aria-invalid');});
+    ['bericht','naam','organisatie'].forEach(function(n){ if(!el[n].value.trim()){miss.push(t.f[n]);el[n].setAttribute('aria-invalid','true');} });
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.email.value.trim())){miss.push(t.email);el.email.setAttribute('aria-invalid','true');}
+    if(!el.akkoord.checked) miss.push(t.akkoord);
+    if(miss.length){err.className='cerr';err.textContent=t.miss+miss.join(', ')+'.';var first=f.querySelector('[aria-invalid="true"]');if(first)first.focus();return;}
+    var body=['Contactaanvraag via financial-services.blinqx.tech','',
+      'Bericht:',el.bericht.value.trim(),'',
+      'Doelgroep: '+el.doelgroep.value,'Dienst: '+el.dienst.value,'',
+      'Naam: '+el.naam.value.trim(),'Organisatie: '+el.organisatie.value.trim(),'E-mail: '+el.email.value.trim(),'Telefoon: '+(el.telefoon.value.trim()||'-'),
+      'Taal: '+l.toUpperCase(),'Akkoord privacyverklaring: ja'].join('\n');
+    var subj='Contactaanvraag Blinqx Financial Services – '+el.dienst.value+' – '+el.organisatie.value.trim();
+    window.location.href='mailto:'+TO+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    err.className='cerr ok'; err.textContent=t.ok;
+  });
 })();
