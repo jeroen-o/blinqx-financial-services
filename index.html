@@ -115,6 +115,8 @@ section{padding:72px 0}
 .person{display:flex;align-items:center;gap:12px;background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:14px 16px}
 .avatar{flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:1rem}
 .pname{font-weight:600;color:#fff}
+.pinfo{display:flex;flex-direction:column;min-width:0}
+.pmeta{font-size:.85rem;color:#cfd8e6;word-break:break-word}
 img.avatar{object-fit:cover;display:block;border:2px solid var(--yellow)}
 footer{background:var(--navy);color:#cfd8e6;border-top:1px solid rgba(255,255,255,.08);padding:28px 0}
 footer .fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;max-width:1160px;margin:0 auto}
@@ -713,7 +715,7 @@ html[data-lang="nl"] .segment-card span.num[data-lang-content="nl"],html[data-la
       <div class="people">
         <div class="person"><img class="avatar" src="img/igor-driessen.jpg" alt="Igor Driessen" width="56" height="56" loading="lazy"><span class="pname">Igor Driessen</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">OK</span><span class="pname">Oscar Kuypers</span></div>
-        <div class="person"><span class="avatar" aria-hidden="true">BD</span><span class="pname">Bob van Dam</span></div>
+        <div class="person"><img class="avatar" src="img/bob-van-dam.jpg" alt="Bob van Dam" width="56" height="56" loading="lazy"><span class="pinfo"><span class="pname">Bob van Dam</span><span class="pmeta">bob.van.dam@blinqx.tech</span><span class="pmeta">06 43 81 19 40</span></span></div>
         <div class="person"><span class="avatar" aria-hidden="true">JO</span><span class="pname">Jeroen Oversteegen</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">DR</span><span class="pname">Dennes Roes</span></div>
         <div class="person"><span class="avatar" aria-hidden="true">JD</span><span class="pname">Jos van Driesum</span></div>
